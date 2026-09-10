@@ -1,0 +1,386 @@
+{
+  "doi": "10.5281/zenodo.22694247",
+  "record_id": 22694247,
+  "title": "napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)",
+  "license": "cc-by-4.0",
+  "files": [
+    {
+      "name": "1_CH00_000000.tif",
+      "size": 134781873,
+      "checksum": "md5:fcd078989759fe79f0278ad22349d927",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000000.tif/content"
+    },
+    {
+      "name": "1_CH00_000001.tif",
+      "size": 134781873,
+      "checksum": "md5:42fbd4f289a3fecd95eb3a640b8948e0",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000001.tif/content"
+    },
+    {
+      "name": "1_CH00_000002.tif",
+      "size": 134781873,
+      "checksum": "md5:d99d031b138e93374d1607ab5dbac022",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000002.tif/content"
+    },
+    {
+      "name": "1_CH00_000003.tif",
+      "size": 134781873,
+      "checksum": "md5:bde1a6b7d8426882f74f7e931456f858",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000003.tif/content"
+    },
+    {
+      "name": "1_CH00_000004.tif",
+      "size": 134781873,
+      "checksum": "md5:1c3b1ee810e1fa27cadb67bd6a86c832",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000004.tif/content"
+    },
+    {
+      "name": "1_CH00_000005.tif",
+      "size": 134781873,
+      "checksum": "md5:8e5e768bb89524a3b1d5722602316aa9",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000005.tif/content"
+    },
+    {
+      "name": "1_CH00_000006.tif",
+      "size": 134781873,
+      "checksum": "md5:f98ecc5e6fe98bf2ac5d11df560ea0b2",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000006.tif/content"
+    },
+    {
+      "name": "1_CH00_000007.tif",
+      "size": 134781873,
+      "checksum": "md5:501930c511682f4619cb43d19aba1cba",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000007.tif/content"
+    },
+    {
+      "name": "1_CH00_000008.tif",
+      "size": 134781873,
+      "checksum": "md5:aa6d3fd9d1d6a5048eeadde73c8168e5",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000008.tif/content"
+    },
+    {
+      "name": "1_CH00_000009.tif",
+      "size": 134781873,
+      "checksum": "md5:5e0eb83ff0d1fc10a5bd77179453d5f8",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000009.tif/content"
+    },
+    {
+      "name": "1_CH00_000010.tif",
+      "size": 134781873,
+      "checksum": "md5:89a19229d5fc53520d17b5302b212ef2",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000010.tif/content"
+    },
+    {
+      "name": "1_CH00_000011.tif",
+      "size": 134781872,
+      "checksum": "md5:8b8032f9fe7b2ace616ea508a85674c7",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000011.tif/content"
+    },
+    {
+      "name": "1_CH00_000012.tif",
+      "size": 134781873,
+      "checksum": "md5:579e3b06eed537b7aaa242e2204e9544",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000012.tif/content"
+    },
+    {
+      "name": "1_CH00_000013.tif",
+      "size": 134781873,
+      "checksum": "md5:d0e3e7e6fd74e84760bc4f4601d0f773",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000013.tif/content"
+    },
+    {
+      "name": "1_CH00_000014.tif",
+      "size": 134781873,
+      "checksum": "md5:3fbd1896da4282eb1162909930672b78",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000014.tif/content"
+    },
+    {
+      "name": "1_CH00_000015.tif",
+      "size": 134781873,
+      "checksum": "md5:55150ad338c2a4b0583e2a0017f845ad",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000015.tif/content"
+    },
+    {
+      "name": "1_CH00_000016.tif",
+      "size": 134781872,
+      "checksum": "md5:041b3e5406f089f9848b6d05a7b1a491",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000016.tif/content"
+    },
+    {
+      "name": "1_CH00_000017.tif",
+      "size": 134781873,
+      "checksum": "md5:38f728645d5f6b900f364edad606c0e6",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000017.tif/content"
+    },
+    {
+      "name": "1_CH00_000018.tif",
+      "size": 134781873,
+      "checksum": "md5:15d9ca44de45877a10919e9e1f129f6e",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000018.tif/content"
+    },
+    {
+      "name": "1_CH00_000019.tif",
+      "size": 134781873,
+      "checksum": "md5:0cb354b34b5631df4ecb620a2d84b422",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000019.tif/content"
+    },
+    {
+      "name": "1_CH00_000020.tif",
+      "size": 134781873,
+      "checksum": "md5:727ce8b716d3b7f09a3092f3aab1c28b",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000020.tif/content"
+    },
+    {
+      "name": "1_CH00_000021.tif",
+      "size": 134781873,
+      "checksum": "md5:4f42ab959f1a5083c877de801c76b7a9",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000021.tif/content"
+    },
+    {
+      "name": "1_CH00_000022.tif",
+      "size": 134781873,
+      "checksum": "md5:28c44133c2028edc905aacd9316533ae",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000022.tif/content"
+    },
+    {
+      "name": "1_CH00_000023.tif",
+      "size": 134781873,
+      "checksum": "md5:7c1602cdab73a02e001cbc0a023008b2",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000023.tif/content"
+    },
+    {
+      "name": "1_CH00_000024.tif",
+      "size": 134781873,
+      "checksum": "md5:5b3baaf014f5a6afc76770de2849bfdd",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000024.tif/content"
+    },
+    {
+      "name": "1_CH00_000025.tif",
+      "size": 134781873,
+      "checksum": "md5:987787313d0417503aa96267d85d893c",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000025.tif/content"
+    },
+    {
+      "name": "1_CH00_000026.tif",
+      "size": 134781873,
+      "checksum": "md5:f4b9d7be62db5072e95ba38c3c42c54a",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000026.tif/content"
+    },
+    {
+      "name": "1_CH00_000027.tif",
+      "size": 134781873,
+      "checksum": "md5:7698d8dd97c3cf412e007ad28b6d5417",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000027.tif/content"
+    },
+    {
+      "name": "1_CH00_000028.tif",
+      "size": 134781873,
+      "checksum": "md5:18b3f8c8a99437265a1fb455456c8c7e",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000028.tif/content"
+    },
+    {
+      "name": "1_CH00_000029.tif",
+      "size": 134781873,
+      "checksum": "md5:86b826447df05473ddcd47e1e024a3c7",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH00_000029.tif/content"
+    },
+    {
+      "name": "1_CH01_000000.tif",
+      "size": 134781873,
+      "checksum": "md5:67c3293d1496b22efc9049132c8fe058",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000000.tif/content"
+    },
+    {
+      "name": "1_CH01_000001.tif",
+      "size": 134781873,
+      "checksum": "md5:b5930986a106c72dfd5fd66e060b4be7",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000001.tif/content"
+    },
+    {
+      "name": "1_CH01_000002.tif",
+      "size": 134781873,
+      "checksum": "md5:6b2f90155fdb4b9bb5a5064bb3a2f87a",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000002.tif/content"
+    },
+    {
+      "name": "1_CH01_000003.tif",
+      "size": 134781873,
+      "checksum": "md5:8ac93ac5347a8ce578c31b53bc5f1aa5",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000003.tif/content"
+    },
+    {
+      "name": "1_CH01_000004.tif",
+      "size": 134781873,
+      "checksum": "md5:9cde377350eadac27013d6f45c186c13",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000004.tif/content"
+    },
+    {
+      "name": "1_CH01_000005.tif",
+      "size": 134781872,
+      "checksum": "md5:7157b3428e0669d544797ad2cbe2acad",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000005.tif/content"
+    },
+    {
+      "name": "1_CH01_000006.tif",
+      "size": 134781872,
+      "checksum": "md5:365815e084580f7533dfbcd82f2ca8e0",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000006.tif/content"
+    },
+    {
+      "name": "1_CH01_000007.tif",
+      "size": 134781873,
+      "checksum": "md5:a98bde94355ad53bfb28fcf139f423aa",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000007.tif/content"
+    },
+    {
+      "name": "1_CH01_000008.tif",
+      "size": 134781872,
+      "checksum": "md5:ca362e9b4b862c39f3aab561391cbd8a",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000008.tif/content"
+    },
+    {
+      "name": "1_CH01_000009.tif",
+      "size": 134781873,
+      "checksum": "md5:5d58435b442484dc5676c35b998a9d2a",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000009.tif/content"
+    },
+    {
+      "name": "1_CH01_000010.tif",
+      "size": 134781873,
+      "checksum": "md5:1c5a4424f2979c1943a0e5be791b339b",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000010.tif/content"
+    },
+    {
+      "name": "1_CH01_000011.tif",
+      "size": 134781872,
+      "checksum": "md5:562860b280b4fd7a3e2f59453836ef4b",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000011.tif/content"
+    },
+    {
+      "name": "1_CH01_000012.tif",
+      "size": 134781872,
+      "checksum": "md5:e5c1de6cb48e86111de7864096aa84b0",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000012.tif/content"
+    },
+    {
+      "name": "1_CH01_000013.tif",
+      "size": 134781872,
+      "checksum": "md5:d72cf6ac84921c760db3dcc43bb1eaf7",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000013.tif/content"
+    },
+    {
+      "name": "1_CH01_000014.tif",
+      "size": 134781872,
+      "checksum": "md5:8b5cad8406c548ff280ab6fc29f02ba9",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000014.tif/content"
+    },
+    {
+      "name": "1_CH01_000015.tif",
+      "size": 134781873,
+      "checksum": "md5:355038db8226b6f5f285bb66a979de4f",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000015.tif/content"
+    },
+    {
+      "name": "1_CH01_000016.tif",
+      "size": 134781873,
+      "checksum": "md5:9f5870578b0c66215aeea87ea55fd0b0",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000016.tif/content"
+    },
+    {
+      "name": "1_CH01_000017.tif",
+      "size": 134781872,
+      "checksum": "md5:bf17f849a21b6596a1c4b6f4db97eb6c",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000017.tif/content"
+    },
+    {
+      "name": "1_CH01_000018.tif",
+      "size": 134781873,
+      "checksum": "md5:e51b223fc1d230ee0979c6c022bd1bfb",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000018.tif/content"
+    },
+    {
+      "name": "1_CH01_000019.tif",
+      "size": 134781873,
+      "checksum": "md5:3ad005e288ca1bc381fba0c1c30b13c6",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000019.tif/content"
+    },
+    {
+      "name": "1_CH01_000020.tif",
+      "size": 134781873,
+      "checksum": "md5:2c2893362a0731da34162c4190ce63ac",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000020.tif/content"
+    },
+    {
+      "name": "1_CH01_000021.tif",
+      "size": 134781872,
+      "checksum": "md5:be7bf32fc0d8a6a0e0801445132dc7c0",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000021.tif/content"
+    },
+    {
+      "name": "1_CH01_000022.tif",
+      "size": 134781872,
+      "checksum": "md5:2fbca54da2ed871407e63f0083f93e7a",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000022.tif/content"
+    },
+    {
+      "name": "1_CH01_000023.tif",
+      "size": 134781872,
+      "checksum": "md5:be3a52a28db03c05d9543214ec2c1561",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000023.tif/content"
+    },
+    {
+      "name": "1_CH01_000024.tif",
+      "size": 134781873,
+      "checksum": "md5:c5c48b374f8889e76c3e50cb1d1df6e0",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000024.tif/content"
+    },
+    {
+      "name": "1_CH01_000025.tif",
+      "size": 134781873,
+      "checksum": "md5:3fb6048034b58beb327292f6177b13ff",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000025.tif/content"
+    },
+    {
+      "name": "1_CH01_000026.tif",
+      "size": 134781873,
+      "checksum": "md5:5e04f516a00a6312e95bebd24aa8c4a2",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000026.tif/content"
+    },
+    {
+      "name": "1_CH01_000027.tif",
+      "size": 134781872,
+      "checksum": "md5:9d1333567ec75152b14cd3494752137a",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000027.tif/content"
+    },
+    {
+      "name": "1_CH01_000028.tif",
+      "size": 134781873,
+      "checksum": "md5:28d8c002607f0634598def2cdf56ac53",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000028.tif/content"
+    },
+    {
+      "name": "1_CH01_000029.tif",
+      "size": 134781872,
+      "checksum": "md5:22d83dd766c57fb5c2f9181bbcab9f1c",
+      "url": "https://zenodo.org/api/records/22694247/files/1_CH01_000029.tif/content"
+    },
+    {
+      "name": "detections.csv",
+      "size": 2434523,
+      "checksum": "md5:d69a67e888d709e067989acdfee862a4",
+      "url": "https://zenodo.org/api/records/22694247/files/detections.csv/content"
+    },
+    {
+      "name": "movieData.mat",
+      "size": 6521,
+      "checksum": "md5:fc4d5f80f40ff8317d1484919e7f832c",
+      "url": "https://zenodo.org/api/records/22694247/files/movieData.mat/content"
+    },
+    {
+      "name": "tracks.csv",
+      "size": 1438504,
+      "checksum": "md5:63418214934a78af05d247d6ebd19772",
+      "url": "https://zenodo.org/api/records/22694247/files/tracks.csv/content"
+    }
+  ]
+}

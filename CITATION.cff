@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "Please cite the source dataset when using these workshop materials."
+title: "Rendering biological data with napari"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Dean
+    given-names: Kevin
+    orcid: "https://orcid.org/0000-0003-0839-2320"
+repository-code: "https://github.com/TheDeanLab/napari-workshop"
+url: "https://thedeanlab.github.io/napari-workshop/"
+license: BSD-3-Clause
+references:
+  - type: data
+    title: "napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)"
+    doi: 10.5281/zenodo.22694247
+    authors:
+      - family-names: Fiolka
+        given-names: Reto
+      - family-names: Dean
+        given-names: Kevin
+    year: 2026

@@ -1,0 +1,27 @@
+name: Check course runtime
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run pytest -q
+      - run: uv run python scripts/check_setup.py --movie
+      - run: uv run ruff check src tests scripts docs/conf.py
+      - run: uv run ruff format --check src tests scripts docs/conf.py
+      - name: Validate notebook file format
+        run: uv run python -c "import pathlib,nbformat; [nbformat.validate(nbformat.read(p,as_version=4)) for p in pathlib.Path('notebooks').glob('*.ipynb')]"

@@ -1,0 +1,14 @@
+{
+  "doi": "10.5281/zenodo.22694247",
+  "dataset": "Cell14",
+  "channels": ["DNA", "Mitochondria"],
+  "source_shape_zyx": [118, 664, 860],
+  "spatial_factor": 1,
+  "coordinate_system": "source_voxels",
+  "voxel_size_um": null,
+  "time_step_s": null,
+  "calibration_status": "Awaiting confirmation; display source voxels and frame indices.",
+  "timepoints": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+  "axes": "TZYX",
+  "license": "CC-BY-4.0"
+}
