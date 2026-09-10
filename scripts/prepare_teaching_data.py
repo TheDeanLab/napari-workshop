@@ -117,7 +117,6 @@ def main():
             "name": "teaching.zip",
             "size": archive.stat().st_size,
             "checksum": "sha256:" + checksum(archive, "sha256"),
-            "url": "https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/teaching.zip",
         }
         working.rename(args.output)
         archive.rename(args.archive)
@@ -126,15 +125,12 @@ def main():
         "spatial_factor": args.factor,
         "archive": spec,
     }
-    # A custom output is a candidate derivative, not an automatic new course release.
+    # Preparation creates a candidate; published URLs and checksums are updated
+    # explicitly only after uploading and verifying the exact archive.
     manifest_path = args.archive.with_suffix(".manifest.json")
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
-    if (
-        args.output.resolve() == (ROOT / "data/teaching").resolve()
-        and args.archive.resolve() == (ROOT / "dist/teaching.zip").resolve()
-    ):
-        (ROOT / "data/teaching-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"Created {args.archive}: {spec['size'] / 1e6:.1f} MB")
+    print(f"Candidate manifest: {manifest_path}. The published course manifest is unchanged.")
 
 
 if __name__ == "__main__":

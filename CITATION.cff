@@ -1,8 +1,8 @@
 cff-version: 1.2.0
-message: "Please cite the source dataset when using these workshop materials."
+message: "Please cite the teaching derivative and original source dataset when using these workshop materials."
 title: "Rendering biological data with napari"
 type: software
-version: 0.1.0
+version: 0.1.1
 authors:
   - family-names: Dean
     given-names: Kevin
@@ -14,6 +14,15 @@ references:
   - type: data
     title: "napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)"
     doi: 10.5281/zenodo.22694247
+    authors:
+      - family-names: Fiolka
+        given-names: Reto
+      - family-names: Dean
+        given-names: Kevin
+    year: 2026
+  - type: data
+    title: "napari Workshop Teaching Dataset: Spatially Downsampled Images, Detections, and Tracks."
+    doi: 10.5281/zenodo.22696913
     authors:
       - family-names: Fiolka
         given-names: Reto

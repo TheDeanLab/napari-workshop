@@ -2,7 +2,7 @@
 
 Download the 42.8 MB teaching ZIP before class. It keeps all 30 time frames while reducing each spatial dimension by a factor of four; the extracted image arrays contain about 122.5 MiB. That reduction lowers download, memory, and rendering demands, but it permanently removes fine spatial detail.
 
-The teaching derivative comes from [napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)](https://doi.org/10.5281/zenodo.22694247) and is licensed CC BY 4.0. Temporary course hosting uses a pinned GitHub release while a separate Zenodo teaching-package record is considered.
+The teaching derivative comes from [napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)](https://doi.org/10.5281/zenodo.22694247) and is licensed CC BY 4.0. The derivative is archived separately at [Zenodo DOI 10.5281/zenodo.22696913](https://doi.org/10.5281/zenodo.22696913). Zenodo is the default download source; GitHub retains an identical mirror.
 
 ## Recommended: verified command-line download
 
@@ -20,7 +20,7 @@ Start the download:
 uv run scripts/download_data.py --dataset teaching
 ```
 
-The downloader verifies the archive against the checksum recorded in the project manifest before extraction. Rerunning the same command is safe: a previously verified package can be reused.
+The downloader verifies the archive against the checksum recorded in the project manifest before extraction. Rerunning the same command is safe: a previously verified package can be reused, including one downloaded earlier from GitHub. Its bytes and checksum have not changed.
 
 At an ideal sustained 10 Mbit/s the 42.8 MB transfer takes about 35 seconds, or about 3.5 seconds at 100 Mbit/s. Browser, server, Wi-Fi, verification, extraction, and a room full of shared connections add overhead, so these calculations are not a download-time promise.
 
@@ -43,7 +43,7 @@ Both channel folders should contain frames numbered from `frame_000000.tif` thro
 
 ## Browser download
 
-If the command-line route is blocked, download [teaching.zip](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/teaching.zip) in a browser.
+If the command-line route is blocked, download [teaching.zip from Zenodo](https://zenodo.org/records/22696913/files/teaching.zip?download=1) in a browser. An identical [GitHub mirror](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/teaching.zip) is available if Zenodo is unreachable.
 
 1. Wait for the browser to finish downloading. A partial browser download is not usable.
 2. Open the workshop folder, then open its `data` folder.

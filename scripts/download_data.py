@@ -39,7 +39,9 @@ def main():
         destination = ROOT / "data/source"
     total = sum(f["size"] for f in specs)
     print(f"{len(specs)} files, {total / 1e6:.1f} MB; destination: {destination}")
-    print("Source DOI: https://doi.org/10.5281/zenodo.22694247")
+    print(f"Dataset DOI: https://doi.org/{manifest['doi']}")
+    if args.dataset == "teaching":
+        print(f"Original source DOI: https://doi.org/{manifest['source_doi']}")
     if args.dry_run:
         return
     for spec in specs:

@@ -1,10 +1,12 @@
 {
+  "doi": "10.5281/zenodo.22696913",
+  "record_id": 22696913,
   "source_doi": "10.5281/zenodo.22694247",
   "spatial_factor": 4,
   "archive": {
     "name": "teaching.zip",
     "size": 42810555,
     "checksum": "sha256:b7b3cb7334a73ee544c8521439359c1616855a8945dc2706c7dbae10c2bfa545",
-    "url": "https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/teaching.zip"
+    "url": "https://zenodo.org/api/records/22696913/files/teaching.zip/content"
   }
 }

@@ -73,4 +73,4 @@ Display controls change what you see, not the stored voxel intensities. A maximu
 - Download exceeds five class minutes: use the instructor’s local copy or paired route.
 - Existing output folder: choose a new output name; do not mix old and new frames.
 
-Dataset: <https://doi.org/10.5281/zenodo.22694247> (CC BY 4.0).
+Teaching dataset: <https://doi.org/10.5281/zenodo.22696913>. Original source: <https://doi.org/10.5281/zenodo.22694247>. Both CC BY 4.0.

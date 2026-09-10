@@ -31,3 +31,9 @@ GitHub Actions checks the locked environment, tests, encoder, notebook format, a
 - Confirm particle identity, voxel calibration, and acquisition timing. Until then, the materials intentionally use source voxels and frame indices.
 
 Eight GiB RAM is a target for the prepared data, and 16 GiB is preferred. Neither has been certified by a completed laptop pilot. Keep the documented 2D, paired, and static fallback routes available.
+
+## v0.1.1: published teaching DOI
+
+The [teaching derivative record 22696913](https://doi.org/10.5281/zenodo.22696913) was verified after publication on September 10, 2026. A fresh HTTPS download matched both Zenodo’s MD5 and the existing release SHA-256; extraction validated the per-file checksums. The archive remains 42,810,555 bytes and is byte-identical to the original GitHub mirror. Existing verified downloads were successfully reused.
+
+The default downloader now uses the teaching record, while original-resolution downloads still use record 22694247. Both DOIs appear in the course citations. A preparation regression test confirms that generating a candidate archive cannot overwrite the published download manifest. All ten targeted tests passed locally. Notebook code and runtime dependencies are unchanged from v0.1.0; notebook citations, online pages, and downloadable handouts were refreshed.

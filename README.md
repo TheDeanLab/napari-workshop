@@ -46,7 +46,7 @@ The source data have 30 frame indices per image channel. Each source image volum
 
 Coordinates are expressed in source voxels and time is expressed as a zero-based frame index (`0` through `29`). Acquisition spacing and elapsed time have not yet been confirmed, so these materials do not claim micrometres, seconds, or a physical scale bar. The supplied `detections.csv` contains `t,z,y,x,amp,int`; `tracks.csv` contains `id,t,z,y,x` and 2,058 track IDs. A point is a supplied candidate detection. A track is a supplied inferred association of positions across frames; neither is direct proof of biological identity.
 
-Dataset: [napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)](https://doi.org/10.5281/zenodo.22694247), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The new workshop code is licensed under the BSD 3-Clause License.
+Teaching dataset: [Spatially Downsampled Images, Detections, and Tracks](https://doi.org/10.5281/zenodo.22696913). Original dataset: [napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)](https://doi.org/10.5281/zenodo.22694247), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The new workshop code is licensed under the BSD 3-Clause License.
 
 ## Requirements and status
 
@@ -54,4 +54,4 @@ Use Windows or macOS, about 10 GB of free disk space, and preferably 16 GB of RA
 
 These instructions are being prepared for platform pilots. A successful documentation build does not establish that napari, 3D rendering, or movie export works on a particular student computer. Record the operating system, processor, and exact error if a setup check fails.
 
-Read the [online walkthrough](https://thedeanlab.github.io/napari-workshop/) or download the [course ZIP](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/napari-workshop-v0.1.0.zip) and [offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/napari-workshop-handouts.zip). See the [validation record](instructor/validation-report.md) for tested behavior and remaining platform checks.
+Read the [online walkthrough](https://thedeanlab.github.io/napari-workshop/) or download the [course ZIP](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-v0.1.1.zip) and [offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-handouts.zip). See the [validation record](instructor/validation-report.md) for tested behavior and remaining platform checks.

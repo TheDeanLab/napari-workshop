@@ -142,6 +142,7 @@ Show the 2D, paired, and static fallback routes on the same slide.
 
 - Optional animation and large-data notebooks
 - Use-your-own-data checklist: axes, units, memory, coordinates, provenance
-- Dataset DOI: `10.5281/zenodo.22694247` (CC BY 4.0)
+- Teaching dataset DOI: `10.5281/zenodo.22696913` (CC BY 4.0)
+- Original dataset DOI: `10.5281/zenodo.22694247` (CC BY 4.0)
 
 Speaker note: remind learners that successful rendering is evidence of a working display workflow, not proof of detection, tracking, calibration, or biological validity.

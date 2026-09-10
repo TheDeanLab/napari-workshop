@@ -2,7 +2,7 @@
 
 Original dataset: [Fiolka and Dean (2026), Zenodo 22694247](https://doi.org/10.5281/zenodo.22694247), CC BY 4.0. The published record has 60 TIFF stacks, detections.csv, tracks.csv, and a MATLAB metadata file. The workshop does not require MATLAB.
 
-Run `uv run scripts/download_data.py --dataset teaching` from the workshop root. This downloads the **42.8 MB** prepared teaching ZIP from the v0.1.0 GitHub release and extracts it into `data/teaching`. It retains all 30 timepoints and both channels. This derivative is hosted with the course temporarily; a future downsampled Zenodo record can replace that download endpoint while retaining provenance.
+Run `uv run scripts/download_data.py --dataset teaching` from the workshop root. This downloads the **42.8 MB** prepared teaching ZIP from [Zenodo record 22696913](https://doi.org/10.5281/zenodo.22696913) and extracts it into `data/teaching`. It retains all 30 timepoints and both channels. The identical ZIP remains available from the [v0.1.0 GitHub release mirror](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/teaching.zip). Existing verified downloads can be reused without downloading again.
 
 The original data remain on Zenodo. `uv run scripts/download_data.py --dataset source --timepoints 5 --dry-run` reports the files and transfer size for a short original-resolution sequence. Remove `--dry-run` to download it. Thirty timepoints require approximately 8.1 GB. The checked-in manifests specify exact sizes and checksums; the downloader verifies them.
 
@@ -27,6 +27,10 @@ Detections are a headered table: `t,z,y,x,amp,int`. Tracks are a headerless nume
 
 Spatial calibration and the time interval await confirmation. Current lessons use **source voxels** and **frame indices**; no micrometre scale bar or experimental seconds are claimed. The source notebook's channel names are DNA and Mitochondria. Its detections and tracks are precomputed observations/associations, not a curated ground-truth benchmark.
 
+The teaching derivative DOI is `10.5281/zenodo.22696913`; the `doi` field inside the unchanged archive’s `metadata.json` identifies its original source, `10.5281/zenodo.22694247`.
+
 `metadata.json` in the prepared package records the method, source DOI, counts, and per-file SHA-256 checksums. The repository's `zenodo-manifest.json` records the source-file MD5 checksums returned by Zenodo. All source inputs were checksum-verified when preparing this release.
 
 The Python entry-point scripts are part of the complete workshop folder and reuse the neighboring `src/napari_workshop` code. Download the full course ZIP rather than an individual script. Each script's PEP 723 metadata and companion lockfile describe its isolated dependencies; the notebook uses the persistent environment recorded in the project `uv.lock`.
+
+Running `prepare_teaching_data.py` creates a candidate archive and adjacent manifest. It does not overwrite the published course manifest or assign the existing Zenodo DOI to new bytes. Publish and verify a future derivative before explicitly updating `data/teaching-manifest.json`.

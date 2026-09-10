@@ -4,7 +4,7 @@ Welcome to the online handouts for **napari Workshop Datasets: Deciphering the L
 
 This three-hour workshop is written for biologists with little or no programming experience. Start with your operating system setup page before class. During class, the main notebook takes you from an image array to a deliberately styled view with supplied detections and tracks, then to a saved PNG or short movie.
 
-[Download the course files](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/napari-workshop-v0.1.0.zip) · [Download offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.0/napari-workshop-handouts.zip)
+[Download the course files](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-v0.1.1.zip) · [Download offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-handouts.zip)
 
 JupyterLab opens in a browser and runs the explanatory notebook. Napari opens in a separate desktop window on the same computer. Opening this website alone cannot launch that local Qt viewer.
 
@@ -66,4 +66,4 @@ Notebook source files:
 ../instructor/validation-report
 ```
 
-The dataset is available through DOI [10.5281/zenodo.22694247](https://doi.org/10.5281/zenodo.22694247) under CC BY 4.0. The main teaching package is a factor-4 spatial derivative that keeps all 30 frames and loses fine detail. Use [Download the data](../setup/download-data.md) for the verified course route.
+The [teaching dataset](https://doi.org/10.5281/zenodo.22696913) and [original source dataset](https://doi.org/10.5281/zenodo.22694247) have separate Zenodo records, both under CC BY 4.0. The main teaching package is a factor-4 spatial derivative that keeps all 30 frames and loses fine detail. Use [Download the data](../setup/download-data.md) for the verified course route.
