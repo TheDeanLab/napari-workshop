@@ -2,6 +2,17 @@
 
 Complete this setup before class if you can. You need an internet connection, permission to install software for your account, and about 10 GB of free space. The same course files support Apple Silicon and Intel Macs, but both routes still require a platform pilot.
 
+
+Before typing commands, here are the tools you will use:
+
+- **Python environment:** the workshop’s own Python and installed packages, stored in `.venv` so they stay together.
+- **Terminal / PowerShell:** the command window where you install packages and start JupyterLab.
+- **JupyterLab:** the application that opens a notebook in your browser. A notebook contains explanations and code cells.
+- **Kernel:** the running Python process that executes those cells and remembers their variables. Select **Python (napari workshop)**. Restarting it clears those variables.
+- **Napari:** the separate desktop window where you view and manipulate images and layers.
+
+Keep the terminal running while you use JupyterLab and napari. More terms are in the [glossary](../handouts/glossary.md).
+
 ## 1. Identify your Mac and open Terminal
 
 Choose **Apple menu → About This Mac**. Record the macOS version and chip:
@@ -31,7 +42,15 @@ Success looks like `uv 0.x.y` (the numbers may differ). If Terminal says `comman
 
 ## 3. Download and extract the workshop folder
 
-Download the workshop ZIP supplied by your instructor or use the repository’s **Code → Download ZIP** button. Safari normally expands a ZIP automatically in **Downloads**. If it does not, double-click the ZIP in Finder.
+Download the **course files**, [`napari-workshop-v0.1.1.zip`](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-v0.1.1.zip), or use the updated course ZIP supplied by your instructor. The published v0.1.1 ZIP predates the November feedback fixes; use the instructor’s revised copy when provided.
+
+| ZIP file | Purpose |
+|---|---|
+| `napari-workshop-v0.1.1.zip` (or instructor’s revised course ZIP) | Required: notebooks, scripts, and Python environment files. Extract this as your workshop folder. |
+| `napari-workshop-handouts.zip` | Optional: offline reading in a browser. It cannot replace the course files. |
+| `teaching.zip` | Microscopy data, downloaded separately in the data step below. |
+
+Safari normally expands a ZIP automatically in **Downloads**. If it does not, double-click the ZIP in Finder.
 
 Move the resulting folder to **Documents**. Open it and confirm that it directly contains `README.md`, `pyproject.toml`, `uv.lock`, `notebooks`, and `scripts`. GitHub may name it `napari-workshop-main`; that name is fine.
 

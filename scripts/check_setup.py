@@ -52,6 +52,7 @@ def main():
         viewer.add_image(
             ((z - 16) ** 2 + (y - 16) ** 2 + (x - 16) ** 2 < 100).astype(np.uint8),
             name="Practice sphere",
+            contrast_limits=(0, 1),
         )
         print("A sphere should appear. Rotate it, then close napari to finish.")
         napari.run()

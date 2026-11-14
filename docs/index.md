@@ -6,7 +6,17 @@ This three-hour workshop is written for biologists with little or no programming
 
 [Download the course files](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-v0.1.1.zip) · [Download offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-handouts.zip)
 
-JupyterLab opens in a browser and runs the explanatory notebook. Napari opens in a separate desktop window on the same computer. Opening this website alone cannot launch that local Qt viewer.
+Before typing commands, here are the tools you will use:
+
+- **Python environment:** the workshop’s own Python and installed packages, stored in `.venv` so they stay together.
+- **Terminal / PowerShell:** the command window where you install packages and start JupyterLab.
+- **JupyterLab:** the application that opens a notebook in your browser. A notebook contains explanations and code cells.
+- **Kernel:** the running Python process that executes those cells and remembers their variables. Select **Python (napari workshop)**. Restarting it clears those variables.
+- **Napari:** the separate desktop window where you view and manipulate images and layers.
+
+Keep the terminal running while you use JupyterLab and napari. More terms are in the [glossary](../handouts/glossary.md).
+
+Opening this website alone cannot launch the local napari viewer.
 
 ![Napari interface displaying a 3D view with image, particle, and track layers](../reference/viewer-interface.png)
 

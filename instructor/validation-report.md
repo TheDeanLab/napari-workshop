@@ -73,3 +73,99 @@ remain from these changes. An independent code review found no additional issues
 This establishes automated execution and export on this Apple Silicon machine.
 It does not certify learner interaction, an 8 GiB memory target, Windows, or Intel
 macOS. Those platform and novice-learner pilots remain outstanding.
+
+## November 14, 2026: learner feedback fixes
+
+Validated on the same Apple Silicon/macOS environment listed above. Five new
+regression cases failed before the fix and passed afterward: both actual sphere
+entry points must render bright pixels, and all three notebook camera-export
+paths must preserve the full native frame at 640 × 480 without an encoder resizing
+warning. The encoding cases use a non-multiple-of-16 synthetic canvas with edge
+features; separate notebook runs exercise the real napari-animation interpolation.
+
+Verification commands and outcomes:
+
+| Check | Result |
+|---|---|
+| `NAPARI_WORKSHOP_GUI_TESTS=1 uv run pytest -q` | 25 passed, including five desktop cases; two upstream Python `itertools` deprecation warnings. |
+| `uv run ruff check src tests scripts docs/conf.py` | Passed. |
+| `uv run ruff format --check src tests scripts docs/conf.py` | Passed; 17 Python files checked. |
+| `uv run python scripts/check_setup.py --movie` | Encoder wrote and read three frames. |
+| `nbformat.validate` on all four learner notebooks and instructor solution | Passed; source notebooks retain empty outputs/execution counts. |
+| Fresh-kernel notebook execution | All four learner notebooks, instructor solution, and main lesson with `USE_3D = False` passed. |
+| `uv run --group docs python scripts/build_handouts.py` | HTML and offline ZIP built successfully with Sphinx warnings treated as errors. |
+
+Each kernel used this worktree's Python environment. Additional validation cells
+checked the visible sphere, particle sizes across acquisition frames, the 2D route
+remaining in 2D, and decoded movie properties. The three camera movies contained
+31 frames at 10 playback fps; four acquired-time movies contained 30 frames at
+5 fps. All seven movies were 640 × 480; first and last frames differed. Camera
+first-frame pixels were compared with the fitted native PNGs. The bright sphere
+and representative decoded first/last camera views were visually inspected.
+No reported Qt/font or encoder-resizing warning occurred in these Mac notebook
+runs. This is not evidence that the Windows Qt/font issues are resolved.
+
+Local executed notebooks, the sphere screenshot, and movie verification records
+are retained in `outputs/feedback-verification-20261114/`; their JSON records name
+the corresponding fresh export directories. Generated outputs are not committed.
+The original setup notebook execution check had missed the dark sphere: completing
+cells did not establish that the practice object was visible. The new desktop
+regression tests explicitly cover that failure. An independent code review found
+no additional actionable issues.
+
+## Windows feedback verification checklist
+
+The November reviewer reported completing the Windows workshop despite a blank
+practice sphere, point-size confusion, and Qt/font/video warnings. They did not
+test macOS. Assaf specifically flagged the sphere because it occurs at the start.
+The feedback is a learner report, not a controlled platform qualification.
+
+The sphere failure was reproduced on Apple Silicon: the synthetic `uint8` image
+contains values 0 and 1, while napari's default contrast range is 0–255. Explicit
+limits of 0–1 restore the sphere in both setup entry points. Camera movies now
+compose napari-animation's supported PNG-directory export with `fit_frame` and
+ImageIO encoding at 640 × 480. Native PNGs remain in `camera-frames` for inspection.
+The particle-size exercise changes all existing points through `particles.size`;
+GUI selection is explained separately as affecting selected visible points.
+
+**Still unverified on Windows:** complete the following on a physical Windows
+laptop using the revised course files. Do not mark Qt/font warnings resolved from
+macOS tests or from non-GUI CI alone.
+
+- Record the course commit/archive, Windows version, CPU, RAM, GPU/driver, screen
+  resolution, display scaling, monitor count, and package versions printed by
+  `uv run python scripts/check_setup.py --movie`.
+- Follow the course-ZIP instructions from a fresh extraction. Confirm the selected
+  ZIP contains `pyproject.toml`, `uv.lock`, `notebooks`, and `scripts`; the offline
+  handouts ZIP is not the runnable course. Published v0.1.1 downloads predate these
+  fixes, so distribute a revised archive before testing them.
+- Run `uv run python scripts/check_setup.py --gui`, then the setup notebook one
+  cell at a time. In each, confirm the sphere is visibly bright and rotates, then
+  close it. Retain a screenshot and any warning text.
+- Open the main notebook at the laptop's normal display scaling. If
+  `QWindowsWindow::setGeometry` appears, confirm that all layer controls, the
+  canvas, and time/z sliders remain accessible. Try restoring/resizing within one
+  screen and record whether that changes the warning or clipping. Repeat on an
+  external monitor if that is part of the intended classroom setup. This suggested
+  workaround has not been verified here.
+- Inspect `z`/`frame` axis labels, the frame overlay, and controls in notebooks 01,
+  02, and 03. If `DirectWrite: CreateFontFaceFromHDC()` mentioning `MS Sans Serif`
+  appears, record whether the text is readable or missing/garbled. No font
+  substitution or warning suppression has been introduced; its Windows cause and
+  any required font correction remain unresolved.
+- Run the particle-size cell and compare frames 0 and 10. Test the documented GUI
+  selection procedure separately, confirming it affects only selected points and
+  that returning to Toggle Camera restores navigation.
+- Run main and optional camera exports from a non-square window. Verify 31 frames,
+  10 playback fps, and 640 × 480 pixels, with full framing and no
+  `macro_block_size` resizing warning. Play the MP4 in the normal Windows player
+  and compare first/last views with the retained PNGs. Acquired-time movies should
+  contain 30 frames at 5 fps and the same dimensions.
+- Restart the main notebook with `USE_3D = False`; verify projection, particles,
+  tracks, PNG, and acquired-time MP4 work and camera rotation is skipped.
+
+Record each outcome as pass/fail/not tested, with the exact warning and artifact
+path. If labels or controls are unusable, use the documented fallback and retain
+the failure for investigation. A warning-free Mac run does not settle these two
+Windows Qt issues. The timed novice rehearsal, Intel Mac pilot, and 8 GiB laptop
+target also remain unverified.

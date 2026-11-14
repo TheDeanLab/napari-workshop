@@ -111,13 +111,13 @@ def test_projection_fallback_survives_both_scene_transitions(dataset):
             Path(__file__).resolve().parents[1] / "notebooks/01_rendering_workshop.ipynb",
             as_version=4,
         )
-        exec(notebook.cells[18].source, namespace)
+        exec(next(c.source for c in notebook.cells if c.id == "1b1b5baa"), namespace)
         assert viewer.dims.ndisplay == 2
         viewer.layers.clear()
         projection = viewer.add_image(images[0].max(axis=1), name="DNA projection")
         viewer.add_points(detections[["t", "y", "x"]].to_numpy(), name="Particles")
         viewer.add_tracks(tracks[:, [0, 1, 3, 4]], name="Tracks")
-        exec(notebook.cells[30].source, namespace)
+        exec(next(c.source for c in notebook.cells if c.id == "1460a9c0"), namespace)
         assert viewer.dims.ndisplay == 2
         assert viewer.layers["DNA projection"] is projection
         assert "Particles" in viewer.layers and "Tracks" in viewer.layers

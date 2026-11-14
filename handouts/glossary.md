@@ -52,6 +52,10 @@ A numeric image value measured at a voxel. Brightness on screen also depends on 
 
 The Python process that runs notebook cells. Choose **Python (napari workshop)** so the notebook uses the workshop environment.
 
+**JupyterLab**
+
+The application that opens notebooks in your browser. A notebook combines explanations and runnable code cells. JupyterLab sends code to the selected kernel; the browser itself does not execute the Python code.
+
 **Layer**
 
 One image, points table, tracks table, or other object in the napari viewer. Each layer has its own visibility and display controls.
