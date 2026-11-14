@@ -27,6 +27,7 @@ exclude_patterns = [
     "scripts/**",
     "src/**",
     "tests/**",
+    "docs/superpowers/**",
     "WORKSHOP_PLAN.md",
 ]
 

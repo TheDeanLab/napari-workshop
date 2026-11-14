@@ -8,7 +8,7 @@ dependencies = [
   "numpy>=2,<2.3", "pandas>=2.2,<3", "tifffile>=2025.1,<2026",
   "scipy>=1.15,<2", "dask[array]>=2025.1,<2027",
   "jupyterlab>=4.4,<5", "ipykernel>=6.29,<7",
-  "imageio>=2.37,<3", "imageio-ffmpeg==0.6.0",
+  "imageio>=2.37,<3", "imageio-ffmpeg==0.6.0", "pillow>=11,<13",
   "napari-animation>=0.0.9,<0.1", "psutil>=7,<8",
 ]
 
@@ -28,6 +28,7 @@ exclude-newer = "2026-09-10T23:59:59Z"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["gui: requires a working desktop/OpenGL context; enable with NAPARI_WORKSHOP_GUI_TESTS=1"]
 
 [tool.ruff]
 line-length = 99

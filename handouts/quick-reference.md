@@ -68,7 +68,7 @@ Display controls change what you see, not the stored voxel intensities. A maximu
 - No napari window: look behind the browser or use **Alt+Tab/Command+Tab**.
 - Wrong result: restart the kernel and run all cells in order.
 - Missing data: confirm `data/teaching/metadata.json` exists.
-- Slow/blank 3D: use the 2D or projection route and pair for the 3D activity.
+- Slow/blank 3D: restart the main notebook with `USE_3D = False`; its cells retain the projection through export and skip camera rotation. Pair for the 3D activity.
 - Movie fails: keep the PNG screenshot and use the reference movie.
 - Download exceeds five class minutes: use the instructor’s local copy or paired route.
 - Existing output folder: choose a new output name; do not mix old and new frames.

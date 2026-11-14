@@ -2,6 +2,17 @@
 
 Complete this setup before class if you can. You need an internet connection, permission to install software for your Windows account, and about 10 GB of free space. These directions use **PowerShell**, the command window built into Windows.
 
+
+Before typing commands, here are the tools you will use:
+
+- **Python environment:** the workshop’s own Python and installed packages, stored in `.venv` so they stay together.
+- **Terminal / PowerShell:** the command window where you install packages and start JupyterLab.
+- **JupyterLab:** the application that opens a notebook in your browser. A notebook contains explanations and code cells.
+- **Kernel:** the running Python process that executes those cells and remembers their variables. Select **Python (napari workshop)**. Restarting it clears those variables.
+- **Napari:** the separate desktop window where you view and manipulate images and layers.
+
+Keep the terminal running while you use JupyterLab and napari. More terms are in the [glossary](../handouts/glossary.md).
+
 ## 1. Open PowerShell
 
 Open the **Start** menu, type `PowerShell`, and choose **Windows PowerShell** or **PowerShell**. A window with a prompt such as `PS C:\Users\YourName>` appears. The prompt shows the folder where a command will run. Type only the commands shown after the prompt, then press **Enter**.
@@ -28,7 +39,15 @@ Success looks like `uv 0.x.y` (the numbers may differ). If PowerShell says that 
 
 ## 3. Download and extract the workshop folder
 
-Download the workshop ZIP supplied by your instructor or from the repository’s **Code → Download ZIP** button. In File Explorer, open **Downloads**, right-click the ZIP, choose **Extract All…**, and select a short location such as `C:\Users\YourName\Documents`. Click **Extract**.
+Download the **course files**, [`napari-workshop-v0.1.1.zip`](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-v0.1.1.zip), or use the updated course ZIP supplied by your instructor. The published v0.1.1 ZIP predates the November feedback fixes; use the instructor’s revised copy when provided.
+
+| ZIP file | Purpose |
+|---|---|
+| `napari-workshop-v0.1.1.zip` (or instructor’s revised course ZIP) | Required: notebooks, scripts, and Python environment files. Extract this as your workshop folder. |
+| `napari-workshop-handouts.zip` | Optional: offline reading in a browser. It cannot replace the course files. |
+| `teaching.zip` | Microscopy data, downloaded separately in the data step below. |
+
+In File Explorer, open **Downloads**, right-click the ZIP, choose **Extract All…**, and select a short location such as `C:\Users\YourName\Documents`. Click **Extract**.
 
 Open the extracted folder. It must directly contain `README.md`, `pyproject.toml`, `uv.lock`, `notebooks`, and `scripts`. GitHub ZIPs often add a suffix, so the actual folder may be named `napari-workshop-main`; that is fine.
 
@@ -100,7 +119,7 @@ A separate napari window should appear. Close it after the test. Add `--movie` o
 uv run jupyter lab
 ```
 
-PowerShell prints messages and opens JupyterLab in your web browser. Leave PowerShell running. In the browser, double-click `notebooks`, then `00_check_setup.ipynb`. At the upper right, select **Python (napari workshop)**. Use **Run → Run All Cells** and compare each result with the explanation in the notebook.
+PowerShell prints messages and opens JupyterLab in your web browser. Leave PowerShell running. In the browser, double-click `notebooks`, then `00_check_setup.ipynb`. At the upper right, select **Python (napari workshop)**. Run one code cell at a time with **Shift+Enter** and compare each result with the explanation in the notebook. Stop when the practice sphere appears: inspect and rotate it before running the cell that closes the viewer. Do not use **Run All Cells** for this interactive check.
 
 The notebook runs in the browser, while napari opens as a separate desktop window. Look behind the browser or use **Alt+Tab** if the viewer is hidden.
 

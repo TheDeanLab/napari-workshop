@@ -66,13 +66,34 @@ Send the instructor the complete terminal output if this fails.
 
 ## Qt, OpenGL, graphics, or a blank 3D canvas fails
 
-First close other viewers and memory-heavy applications. Retry the tiny `--gui` setup check. If 2D works but 3D is slow or blank, continue with a 2D slice or maximum-intensity projection and pair with a neighbor for the 3D manipulation. If even 2D napari fails, use the static course page and an instructor demonstration.
+If the **Practice sphere** layer exists but looks black, first check its contrast limits. The synthetic sphere contains only 0 and 1; set the range to **0–1**. Both setup checks now set that range explicitly. Older copies used the 0–255 default for `uint8`, which made the sphere almost invisible. Closing applications will not correct that display range. A visible sphere that rotates is the graphics checkpoint.
+
+First close other viewers and memory-heavy applications. Retry the tiny `--gui` setup check. If 2D works but 3D is slow or blank, close the viewer, restart the main notebook kernel, and set `USE_3D = False` in its first code cell. Run from the top. This keeps slices and projections, skips camera rotation, and still exports a PNG and acquired-time movie with projected points/tracks. Pair with a neighbor for the 3D manipulation. If even 2D napari fails, use the static course page and an instructor demonstration.
 
 Installing the Python packages does not prove that the computer’s graphics driver supports the viewer. Do not spend class time installing random Qt packages or changing display drivers. Record the exact error and machine details for follow-up.
 
+## Windows warnings appear in red, but the notebook continues
+
+Red text is not by itself a failed cell. A warning can describe an adjustment while code continues. A traceback ending in an exception, missing labels, an unusable viewer, or a missing movie needs attention. Keep the complete message; do not disable all warnings.
+
+| Message | What to check and do |
+|---|---|
+| `QWindowsWindow::setGeometry: Unable to set geometry` | Windows reports different actual and requested window dimensions. Check that the canvas, layer controls, and time slider are visible and usable. Try restoring the window from maximized mode and resizing it within one screen. If controls remain clipped, ask the instructor. Record screen resolution, Windows display scaling, and whether multiple monitors are attached. The cause and workaround still need Windows verification. |
+| `DirectWrite: CreateFontFaceFromHDC() failed` mentioning `MS Sans Serif` | Check that `z`/`frame` axis labels, the frame overlay, and controls are readable. If they are, the reported run suggests the warning need not stop the lesson; a Windows pilot must confirm this. If text is absent or garbled, stop and show the instructor. Do not install random fonts or Qt versions during class. |
+| `IMAGEIO FFMPEG_WRITER WARNING` mentioning `macro_block_size=16` | The encoder is resizing frames for video compatibility. Updated camera and acquired-time examples fit the whole view into 640 × 480 before encoding, so this warning is not expected there. Check that you ran the updated export cells and reopen the movie to inspect its dimensions. Keep the PNGs if encoding fails; do not change `macro_block_size` to hide the warning. |
+
+The original Windows reviewer completed the workshop despite these warnings. That report does not certify every Windows display or graphics configuration. See the **Windows feedback verification checklist** in the [validation record](../instructor/validation-report.md).
+
 ## The data folder is missing or nested twice
 
-The required location is `data/teaching/metadata.json`. If you have `data/teaching/teaching/metadata.json`, move the inner `teaching` folder so there is only one level. If frames are missing, rerun the scripted download or re-extract a complete browser download; do not create blank replacement files.
+The required location is `data/teaching/metadata.json`. If you have `data/teaching/teaching/metadata.json`, move the inner `teaching` folder so there is only one level. If frames are missing or verification reports corrupt files, rerunning the downloader alone will not repair an existing dataset. Preserve it first:
+
+1. Close napari and shut down the notebook kernel so files are not in use.
+2. In Finder or File Explorer, rename `data/teaching` to an unused name such as `data/teaching-incomplete`. Keep that folder until the replacement passes verification.
+3. From the workshop folder, run `uv run scripts/download_data.py --dataset teaching`. The downloader reuses a checksum-verified `data/downloads/teaching.zip` and extracts a fresh `data/teaching` folder.
+4. Rerun the setup notebook one cell at a time. Its complete data check must succeed before continuing.
+
+For a browser download, keep the incomplete folder aside and extract the complete ZIP into a new `data/teaching` folder. Do not create blank replacement files or extract over the incomplete folder.
 
 ## A download is slow or interrupted
 

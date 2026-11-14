@@ -15,7 +15,9 @@ Speaker note: detections and tracks have already been computed. No new detection
 ### 2. Three windows, three jobs
 
 - Terminal/PowerShell starts tools
-- JupyterLab browser explains and runs code cells
+- JupyterLab browser shows explanations and code cells
+- Kernel executes Python and remembers variables
+- Environment (`.venv`) holds this workshop’s Python and packages
 - Napari desktop window displays and manipulates layers
 
 Demo: locate each window and show how to switch among them.
@@ -25,7 +27,8 @@ Demo: locate each window and show how to switch among them.
 - Correct folder contains `pyproject.toml`
 - Kernel is **Python (napari workshop)**
 - `sys.executable` contains current folder and `.venv`
-- `data/teaching/metadata.json` exists
+- All teaching files pass verification
+- Practice sphere is visible and rotates
 
 Speaker note: stop classroom downloads after five minutes and distribute the local copy.
 

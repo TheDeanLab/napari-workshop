@@ -49,9 +49,9 @@ If the command-line route is blocked, download [teaching.zip from Zenodo](https:
 2. Open the workshop folder, then open its `data` folder.
 3. Extract the ZIP there. On Windows, right-click it and choose **Extract All…**. On macOS, double-click it.
 4. The result must be `data/teaching/metadata.json`, not `data/teaching/teaching/metadata.json`. Move the inner folder up one level if extraction created an extra nested folder.
-5. Keep the ZIP until the setup notebook confirms the data can be read.
+5. Keep the ZIP until the setup notebook verifies all image headers, both tables, and every file checksum.
 
-The scripted route checks file identity automatically. With a browser download, use the setup notebook to check the extracted layout before class.
+The scripted route checks file identity automatically. With a browser download, run the setup notebook’s complete data verification before class. If it fails, follow the [missing or incomplete data recovery instructions](troubleshooting.md).
 
 ## Five-minute classroom limit
 

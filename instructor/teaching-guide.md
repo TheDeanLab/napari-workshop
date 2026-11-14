@@ -31,12 +31,12 @@ Use one lead instructor and, if possible, one helper. The lead keeps the biologi
 
 Display a final example at the start. Use a repeated rhythm: **predict → run a short cell → manipulate napari → explain the result**. When introducing syntax, say what each line changes before running it. Avoid live coding beyond edits already marked in the notebook.
 
-## Exact 180-minute schedule
+## Planned 180-minute schedule
 
 | Time | Activity | Check for understanding | Recovery/omit decision |
 |---|---|---|---|
 | 0–10 | Show the final view/movie; name browser, kernel, and napari window | Learners identify which window runs code and which displays data | Use a local reference movie if playback fails |
-| 10–20 | Setup and data check; verify kernel and `sys.executable` | Path contains current workshop folder and `.venv`; tiny viewer opens | Stop downloads at minute 5; distribute local copy or pair |
+| 10–20 | Setup and data check; verify kernel and `sys.executable` | Path contains current workshop folder and `.venv`; practice sphere is visible and rotates | Stop downloads at minute 5; distribute local copy or pair |
 | 20–40 | Load first grayscale image; explain array, axes, shape, layer | Learner labels `t,z,y,x` and finds the layer list | Use supplied 2D PNG if viewer fails |
 | 40–65 | Add both channels; contrast, gamma, colormaps, opacity, additive blending; PNG export | Learner explains why display changes do not alter TIFF values | Keep screenshot; omit extra styling variations |
 | 65–90 | Navigate z and t; compare slice, projection, and 3D; rotate/reset | Learner names information lost by projection | Use slice/projection and paired 3D route |
@@ -47,6 +47,8 @@ Display a final example at the start. Use a repeated rhythm: **predict → run a
 | 155–165 | Export/check MP4 and retain PNG fallback | Learner distinguishes acquisition frame from playback fps | Use PNG plus reference MP4 if encoding fails |
 | 165–177 | Independent mini-challenge | Learner produces an artifact and explains three choices and one limit | Pair or use prepared 2D data |
 | 177–180 | Exit ticket and shutdown | Learner states image/detection/track distinction | Collect written answer after class if needed |
+
+A reviewer expected to finish in less than three hours, depending on exploration and guidance. Keep the three-hour slot until a timed novice pilot is complete; use spare time for the mini-challenge, interpretation, or optional notebooks. Record time spent on setup separately.
 
 The ten-minute break belongs inside the 180 minutes. Give a visible warning at minutes 80, 135, and 155 so optional material cannot consume the final challenge.
 
@@ -111,7 +113,7 @@ Start the clock when an in-class teaching-package download begins. At five minut
 
 ### 2D route
 
-Use the supplied projection or a single slice and keep the same sequence: load channels, adjust display, overlay 2D points/tracks, export PNG, interpret limitations. Explicitly state that a projection discards depth. If movie export works, a fixed-camera 2D time sequence can still meet most export objectives.
+Set `USE_3D = False` in the main notebook’s first code cell before running the lesson (restart the kernel first if 3D already failed). Both 3D transitions and camera-only animation are skipped; the projection and its overlays remain available through PNG and acquired-time export. Keep the same sequence: load channels, adjust display, overlay 2D points/tracks, export PNG, interpret limitations. Explicitly state that a projection discards depth. If movie export works, a fixed-camera 2D time sequence can still meet most export objectives.
 
 ### Paired route
 
