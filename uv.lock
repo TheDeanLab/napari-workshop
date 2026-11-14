@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = "==3.12.*"
 resolution-markers = [
     "sys_platform == 'darwin'",
@@ -1270,6 +1270,7 @@ dependencies = [
     { name = "napari-animation" },
     { name = "numpy" },
     { name = "pandas" },
+    { name = "pillow" },
     { name = "psutil" },
     { name = "scipy" },
     { name = "tifffile" },
@@ -1299,6 +1300,7 @@ requires-dist = [
     { name = "napari-animation", specifier = ">=0.0.9,<0.1" },
     { name = "numpy", specifier = ">=2,<2.3" },
     { name = "pandas", specifier = ">=2.2,<3" },
+    { name = "pillow", specifier = ">=11,<13" },
     { name = "psutil", specifier = ">=7,<8" },
     { name = "scipy", specifier = ">=1.15,<2" },
     { name = "tifffile", specifier = ">=2025.1,<2026" },

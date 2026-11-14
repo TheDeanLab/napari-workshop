@@ -1,6 +1,6 @@
 # /// script
 # requires-python = ">=3.12,<3.13"
-# dependencies = ["napari[pyqt6]==0.6.6", "numpy>=2,<2.3", "pandas>=2.2,<3", "tifffile>=2025.1,<2026", "scipy>=1.15,<2", "dask[array]>=2025.1,<2027", "imageio>=2.37,<3", "imageio-ffmpeg==0.6.0"]
+# dependencies = ["napari[pyqt6]==0.6.6", "numpy>=2,<2.3", "pandas>=2.2,<3", "tifffile>=2025.1,<2026", "scipy>=1.15,<2", "dask[array]>=2025.1,<2027", "imageio>=2.37,<3", "imageio-ffmpeg==0.6.0", "pillow>=11,<13"]
 # [tool.uv]
 # exclude-newer = "2026-09-10T23:59:59Z"
 # ///

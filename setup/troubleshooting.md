@@ -66,13 +66,20 @@ Send the instructor the complete terminal output if this fails.
 
 ## Qt, OpenGL, graphics, or a blank 3D canvas fails
 
-First close other viewers and memory-heavy applications. Retry the tiny `--gui` setup check. If 2D works but 3D is slow or blank, continue with a 2D slice or maximum-intensity projection and pair with a neighbor for the 3D manipulation. If even 2D napari fails, use the static course page and an instructor demonstration.
+First close other viewers and memory-heavy applications. Retry the tiny `--gui` setup check. If 2D works but 3D is slow or blank, close the viewer, restart the main notebook kernel, and set `USE_3D = False` in its first code cell. Run from the top. This keeps slices and projections, skips camera rotation, and still exports a PNG and acquired-time movie with projected points/tracks. Pair with a neighbor for the 3D manipulation. If even 2D napari fails, use the static course page and an instructor demonstration.
 
 Installing the Python packages does not prove that the computer’s graphics driver supports the viewer. Do not spend class time installing random Qt packages or changing display drivers. Record the exact error and machine details for follow-up.
 
 ## The data folder is missing or nested twice
 
-The required location is `data/teaching/metadata.json`. If you have `data/teaching/teaching/metadata.json`, move the inner `teaching` folder so there is only one level. If frames are missing, rerun the scripted download or re-extract a complete browser download; do not create blank replacement files.
+The required location is `data/teaching/metadata.json`. If you have `data/teaching/teaching/metadata.json`, move the inner `teaching` folder so there is only one level. If frames are missing or verification reports corrupt files, rerunning the downloader alone will not repair an existing dataset. Preserve it first:
+
+1. Close napari and shut down the notebook kernel so files are not in use.
+2. In Finder or File Explorer, rename `data/teaching` to an unused name such as `data/teaching-incomplete`. Keep that folder until the replacement passes verification.
+3. From the workshop folder, run `uv run scripts/download_data.py --dataset teaching`. The downloader reuses a checksum-verified `data/downloads/teaching.zip` and extracts a fresh `data/teaching` folder.
+4. Rerun the setup notebook one cell at a time. Its complete data check must succeed before continuing.
+
+For a browser download, keep the incomplete folder aside and extract the complete ZIP into a new `data/teaching` folder. Do not create blank replacement files or extract over the incomplete folder.
 
 ## A download is slow or interrupted
 

@@ -100,7 +100,7 @@ A separate napari window should appear. Close it after the test. Add `--movie` o
 uv run jupyter lab
 ```
 
-PowerShell prints messages and opens JupyterLab in your web browser. Leave PowerShell running. In the browser, double-click `notebooks`, then `00_check_setup.ipynb`. At the upper right, select **Python (napari workshop)**. Use **Run → Run All Cells** and compare each result with the explanation in the notebook.
+PowerShell prints messages and opens JupyterLab in your web browser. Leave PowerShell running. In the browser, double-click `notebooks`, then `00_check_setup.ipynb`. At the upper right, select **Python (napari workshop)**. Run one code cell at a time with **Shift+Enter** and compare each result with the explanation in the notebook. Stop when the practice sphere appears: inspect and rotate it before running the cell that closes the viewer. Do not use **Run All Cells** for this interactive check.
 
 The notebook runs in the browser, while napari opens as a separate desktop window. Look behind the browser or use **Alt+Tab** if the viewer is hidden.
 

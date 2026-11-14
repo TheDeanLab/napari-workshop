@@ -37,3 +37,39 @@ Eight GiB RAM is a target for the prepared data, and 16 GiB is preferred. Neithe
 The [teaching derivative record 22696913](https://doi.org/10.5281/zenodo.22696913) was verified after publication on September 10, 2026. A fresh HTTPS download matched both Zenodo’s MD5 and the existing release SHA-256; extraction validated the per-file checksums. The archive remains 42,810,555 bytes and is byte-identical to the original GitHub mirror. Existing verified downloads were successfully reused.
 
 The default downloader now uses the teaching record, while original-resolution downloads still use record 22694247. Both DOIs appear in the course citations. A preparation regression test confirms that generating a candidate archive cannot overwrite the published download manifest. All ten targeted tests passed locally. Notebook code and runtime dependencies are unchanged from v0.1.0; notebook citations, online pages, and downloadable handouts were refreshed.
+
+
+## November 14, 2026: review fixes and Apple Silicon execution
+
+The six review fixes were validated on macOS 26.7.3, Apple Silicon, 48 GiB RAM,
+Python 3.12.11, napari 0.6.6, and PyQt6 6.11.0 with a Retina display (pixel ratio 2).
+Exports now capture the native canvas and fit the complete view into 640 × 480
+pixels with aspect-preserving black padding. Shared scenes synchronize their frame
+annotation. Setup checks every TIFF header, both tables, and all teaching-file
+checksums; the OS guides require a pause for graphics inspection. The main lesson's
+`USE_3D = False` route retains projection overlays through export and skips camera
+rotation. Recovery instructions preserve incomplete data before fresh extraction.
+
+All 20 tests passed, including three desktop rendering tests. To run those tests
+on a machine with working Qt/OpenGL, set `NAPARI_WORKSHOP_GUI_TESTS=1` before
+running `uv run pytest -q`; otherwise the three GUI tests are skipped. Two upstream
+Python `itertools` deprecation warnings were emitted. Ruff lint/format checks and
+all five notebook-format checks passed. The HTML/offline ZIP build passed with
+Sphinx warnings treated as errors.
+
+All four learner notebooks and the instructor solution ran in fresh kernels.
+The main lesson also ran completely with `USE_3D = False`, with verification that
+no cell attempted to enter 3D. Each acquired-time movie reopened as 30 frames at
+5 playback fps and 640 × 480 pixels. PNG framing and the corrected frame-10
+camera-animation annotation were visually inspected. Camera movies contained
+31 rendered views at 10 playback fps; those interpolated views are not additional
+acquired timepoints.
+
+A scoped optional `basedpyright` check still reports the same six pre-existing
+pandas/ImageIO inference or stub errors in the rendering module as the original
+revision; type checking is not a configured repository gate. No new type errors
+remain from these changes. An independent code review found no additional issues.
+
+This establishes automated execution and export on this Apple Silicon machine.
+It does not certify learner interaction, an 8 GiB memory target, Windows, or Intel
+macOS. Those platform and novice-learner pilots remain outstanding.

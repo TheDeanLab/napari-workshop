@@ -1,19 +1,107 @@
-"""Small reproducible rendering helpers; notebook lessons show layer calls directly."""
+"""Compose workshop scenes and export views without changing their framing.
+
+``create_scene`` owns viewer construction; callers close the returned viewer.
+``export_time_series`` writes and verifies movies; ``fit_frame`` only transforms
+already captured pixels. Data validation belongs to :mod:`napari_workshop.data`.
+"""
 
 import json
+from collections.abc import Sequence
 from pathlib import Path
+from typing import Any
 
 import dask
 import imageio.v2 as imageio
 import napari
 import numpy as np
+from numpy.typing import NDArray
+from PIL import Image, ImageOps
 from qtpy.QtWidgets import QApplication
 
 from .data import load_images, load_tables
 
 
-def create_scene(folder, downsample=None, lazy=True):
-    """Return a 3D viewer and data metadata for the supplied workshop dataset."""
+def fit_frame(frame: NDArray[np.uint8], size: tuple[int, int] = (480, 640)) -> NDArray[np.uint8]:
+    """Fit captured RGB(A) pixels into a black RGB canvas without cropping.
+
+    Parameters
+    ----------
+    frame : ndarray of uint8, shape (height, width, 3 or 4)
+        Native screenshot pixels. Alpha is discarded; the input is not modified.
+    size : tuple of int
+        Output (height, width) in pixels. The entire input is resized uniformly
+        with Lanczos interpolation and centered; unused space stays black.
+
+    Returns
+    -------
+    fitted : ndarray of uint8, shape (size[0], size[1], 3)
+        New RGB pixels suitable for a PNG or video frame.
+
+    Raises
+    ------
+    ValueError
+        If the input is not uint8 RGB(A), or output dimensions are nonpositive.
+    """
+    if frame.dtype != np.uint8 or frame.ndim != 3 or frame.shape[2] not in (3, 4):
+        raise ValueError("Expected a uint8 RGB or RGBA screenshot")
+    height, width = size
+    if height <= 0 or width <= 0:
+        raise ValueError("Output height and width must be positive")
+    rgb = Image.fromarray(frame[:, :, :3])
+    fitted = ImageOps.pad(rgb, (width, height), method=Image.Resampling.LANCZOS, color="black")
+    return np.array(fitted)
+
+
+def create_scene(
+    folder: str | Path, downsample: int | None = None, lazy: bool = True
+) -> tuple[napari.Viewer, dict[str, Any]]:
+    """Open a 3D workshop scene with a synchronized acquired-frame annotation.
+
+    This is the shared scene constructor for the standalone renderer and optional
+    lessons. The main lesson shows the individual layer calls explicitly.
+
+    Parameters
+    ----------
+    folder : str or Path
+        Dataset directory accepted by ``load_images`` and ``load_tables``.
+    downsample : int or None
+        Total spatial factor relative to the source grid; None uses the stored
+        factor. Image and table transforms retain their shared coordinates.
+    lazy : bool
+        If True, decode image volumes on demand using a single Dask worker.
+
+    Returns
+    -------
+    viewer : napari.Viewer
+        Open viewer with two image layers, particles, tracks, and frame text.
+        The caller owns the viewer and must close it when finished.
+    metadata : dict
+        Dataset metadata returned by the image loader.
+
+    Raises
+    ------
+    FileNotFoundError
+        If a required image or table is absent.
+    ValueError
+        If the loaders reject the images, coordinates, or reduction factor.
+
+    See Also
+    --------
+    napari_workshop.data.load_images : Validate and load the image series.
+    export_time_series : Export and verify acquired frames from an open viewer.
+
+    Notes
+    -----
+    Requires a working Qt/OpenGL desktop. Sets the process-wide Dask scheduler
+    to single-threaded. Changing the frame slider updates the text annotation;
+    time remains a zero-based acquisition frame, not elapsed seconds.
+
+    Examples
+    --------
+    >>> viewer, metadata = create_scene("data/teaching")
+    >>> viewer.dims.set_current_step(0, 10)
+    >>> viewer.close()
+    """
     # A single local worker bounds simultaneous TIFF decoding.
     dask.config.set(scheduler="single-threaded")
     images, scale, meta = load_images(folder, downsample=downsample, lazy=lazy)
@@ -48,7 +136,14 @@ def create_scene(folder, downsample=None, lazy=True):
     viewer.dims.axis_labels = ("frame", "z", "y", "x")
     viewer.axes.visible = True
     viewer.text_overlay.visible = True
-    viewer.text_overlay.text = "Frame 0 | coordinates in source voxels"
+
+    def update_frame_label(event=None):
+        viewer.text_overlay.text = (
+            f"Frame {viewer.dims.current_step[0]} | coordinates in source voxels"
+        )
+
+    viewer.dims.events.current_step.connect(update_frame_label)
+    update_frame_label()
     viewer.layers["Particles"].visible = False
     viewer.camera.angles = (15, 20, 100)
     viewer.reset_view()
@@ -56,8 +151,62 @@ def create_scene(folder, downsample=None, lazy=True):
     return viewer, meta
 
 
-def export_time_series(viewer, output, timepoints, fps=10):
-    """Stream one 640x480 screenshot per acquired frame to H.264 MP4."""
+def export_time_series(
+    viewer: napari.Viewer,
+    output: str | Path,
+    timepoints: Sequence[int],
+    fps: float = 10,
+) -> Path:
+    """Export acquired frames to a verified 640 x 480 H.264 movie.
+
+    Capture the viewer's native canvas and fit each entire view into the output
+    dimensions. Aspect ratio is preserved with black padding, including on
+    high-DPI displays. The viewer must already contain the intended scene.
+
+    Parameters
+    ----------
+    viewer : napari.Viewer
+        Open 2D or 3D scene whose first dimension is acquisition frame.
+    output : str or Path
+        New directory for the movie, first/last PNGs, and ``export.json``.
+        Existing directories are rejected to preserve prior outputs.
+    timepoints : sequence of int
+        Nonempty sequence of valid zero-based frame indices to render in order.
+    fps : float
+        Positive playback frames per second, not the acquisition rate.
+
+    Returns
+    -------
+    movie : Path
+        Verified ``time-series.mp4`` inside the new output directory.
+
+    Raises
+    ------
+    FileExistsError
+        If the output directory already exists.
+    ValueError
+        If no frames are requested or playback fps is nonpositive.
+    RuntimeError
+        If the decoded movie has an unexpected frame count or dimensions.
+
+    See Also
+    --------
+    create_scene : Construct the workshop's standard 3D scene.
+    fit_frame : Fit native screenshot pixels without changing their framing.
+
+    Notes
+    -----
+    Requires a working Qt/OpenGL viewer and FFmpeg encoder. Leaves the viewer
+    at the final frame and updates its text overlay with frame/playback labels.
+    Does not close the viewer or alter camera framing. Partial outputs remain
+    available for diagnosis if encoding fails; retry in a new directory.
+
+    Examples
+    --------
+    >>> viewer, metadata = create_scene("data/teaching")
+    >>> movie = export_time_series(viewer, "outputs/new-run", metadata["timepoints"])
+    >>> viewer.close()
+    """
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     if not timepoints or fps <= 0:
@@ -76,7 +225,7 @@ def export_time_series(viewer, output, timepoints, fps=10):
             viewer.dims.set_current_step(0, int(t))
             viewer.text_overlay.text = f"Frame {t} | playback {fps} frames/s"
             QApplication.processEvents()
-            frame = viewer.screenshot(canvas_only=True, size=(480, 640))
+            frame = fit_frame(viewer.screenshot(canvas_only=True))
             if i in (0, len(timepoints) - 1):
                 imageio.imwrite(output / f"frame-{t:03d}.png", frame)
             writer.append_data(frame[:, :, :3])

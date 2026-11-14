@@ -111,7 +111,7 @@ Start the clock when an in-class teaching-package download begins. At five minut
 
 ### 2D route
 
-Use the supplied projection or a single slice and keep the same sequence: load channels, adjust display, overlay 2D points/tracks, export PNG, interpret limitations. Explicitly state that a projection discards depth. If movie export works, a fixed-camera 2D time sequence can still meet most export objectives.
+Set `USE_3D = False` in the main notebook’s first code cell before running the lesson (restart the kernel first if 3D already failed). Both 3D transitions and camera-only animation are skipped; the projection and its overlays remain available through PNG and acquired-time export. Keep the same sequence: load channels, adjust display, overlay 2D points/tracks, export PNG, interpret limitations. Explicitly state that a projection discards depth. If movie export works, a fixed-camera 2D time sequence can still meet most export objectives.
 
 ### Paired route
 
