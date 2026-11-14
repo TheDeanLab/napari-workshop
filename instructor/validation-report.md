@@ -137,8 +137,8 @@ macOS tests or from non-GUI CI alone.
   `uv run python scripts/check_setup.py --movie`.
 - Follow the course-ZIP instructions from a fresh extraction. Confirm the selected
   ZIP contains `pyproject.toml`, `uv.lock`, `notebooks`, and `scripts`; the offline
-  handouts ZIP is not the runnable course. Published v0.1.1 downloads predate these
-  fixes, so distribute a revised archive before testing them.
+  handouts ZIP is not the runnable course. Use the v0.1.2 course archive, which
+  contains these fixes; the older v0.1.1 downloads do not.
 - Run `uv run python scripts/check_setup.py --gui`, then the setup notebook one
   cell at a time. In each, confirm the sphere is visibly bright and rotates, then
   close it. Retain a screenshot and any warning text.
@@ -169,3 +169,18 @@ path. If labels or controls are unusable, use the documented fallback and retain
 the failure for investigation. A warning-free Mac run does not settle these two
 Windows Qt issues. The timed novice rehearsal, Intel Mac pilot, and 8 GiB laptop
 target also remain unverified.
+
+
+## v0.1.2: fixed course and handout archives
+
+This release packages the November review and learner-feedback fixes, including
+visible setup spheres, complete data checks, all-frame particle sizing, preserved
+export framing, and the 2D fallback. Course and offline-handout download links now
+select v0.1.2. Extract the course into a fresh folder so files from older versions
+are not mixed. The teaching dataset and its pinned checksums are unchanged; a
+verified teaching-data folder can be reused in the new course folder.
+
+The runtime workflow installs the Linux EGL library required by Qt imports and
+uses the supported macOS 15 runner. Linux, Windows, and macOS runtime checks and
+the documentation deployment passed on the merged CI-fix commit `d2cb7d1`.
+This hosted non-GUI validation does not close the physical Windows checklist above.

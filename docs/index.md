@@ -4,7 +4,7 @@ Welcome to the online handouts for **napari Workshop Datasets: Deciphering the L
 
 This three-hour workshop is written for biologists with little or no programming experience. Start with your operating system setup page before class. During class, the main notebook takes you from an image array to a deliberately styled view with supplied detections and tracks, then to a saved PNG or short movie.
 
-[Download the course files](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-v0.1.1.zip) · [Download offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.1/napari-workshop-handouts.zip)
+[Download the course files](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.2/napari-workshop-v0.1.2.zip) · [Download offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.2/napari-workshop-handouts.zip)
 
 Before typing commands, here are the tools you will use:
 
