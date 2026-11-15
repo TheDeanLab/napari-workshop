@@ -137,8 +137,8 @@ warnings affect the viewer; our Mac runs and automated CI cannot answer that.
   `uv run python scripts/check_setup.py --movie`.
 - Follow the course-ZIP instructions from a fresh extraction. Confirm the selected
   ZIP contains `pyproject.toml`, `uv.lock`, `notebooks`, and `scripts`; the offline
-  handouts ZIP is not the runnable course. Use the v0.1.2 course archive, which
-  contains these fixes; the older v0.1.1 downloads do not.
+  handouts ZIP is not the runnable course. Use the v0.1.3 course archive, which
+  includes these fixes and the revised documentation; the older v0.1.1 downloads do not.
 - Run `uv run python scripts/check_setup.py --gui`, then the setup notebook one
   cell at a time. In each, confirm the sphere is visibly bright and rotates, then
   close it. Retain a screenshot and any warning text.
@@ -183,3 +183,15 @@ The runtime workflow installs the Linux EGL library required by Qt imports and
 uses the supported macOS 15 runner. Linux, Windows, and macOS runtime checks and
 the documentation deployment passed on the merged CI-fix commit `d2cb7d1`.
 The Windows GUI checks above still need to be run on a laptop.
+
+
+## v0.1.3: revised documentation
+
+The course and offline handouts now include the revised explanations, captions,
+and setup guidance from PR #4. Student download links point to v0.1.3. Notebook
+code, runtime dependencies, and teaching data are unchanged from v0.1.2.
+
+The documentation changes passed the Linux, Windows, and macOS runtime checks
+and the documentation build and deployment on main at commit `49d6160`. All five
+notebooks passed format validation, with only Markdown text changed. The Windows
+GUI checks and other laptop and learner trials listed above are still needed.

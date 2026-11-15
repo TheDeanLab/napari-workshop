@@ -41,11 +41,11 @@ Success looks like `uv 0.x.y` (the numbers may differ). If Terminal says `comman
 
 ## 3. Download and extract the workshop folder
 
-Download the **course files**, [`napari-workshop-v0.1.2.zip`](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.2/napari-workshop-v0.1.2.zip). This release includes the November setup, rendering, and learner-feedback fixes. Extract it into a fresh folder rather than mixing it with an older course copy.
+Download the **course files**, [`napari-workshop-v0.1.3.zip`](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.3/napari-workshop-v0.1.3.zip). This release includes the revised documentation and the November setup and rendering fixes. Extract it into a fresh folder rather than mixing it with an older course copy.
 
 | ZIP file | Purpose |
 |---|---|
-| `napari-workshop-v0.1.2.zip` | Required: notebooks, scripts, and Python environment files. Extract this as your workshop folder. |
+| `napari-workshop-v0.1.3.zip` | Required: notebooks, scripts, and Python environment files. Extract this as your workshop folder. |
 | `napari-workshop-handouts.zip` | Optional: offline reading in a browser. It cannot replace the course files. |
 | `teaching.zip` | Microscopy data, downloaded separately in the data step below. |
 
