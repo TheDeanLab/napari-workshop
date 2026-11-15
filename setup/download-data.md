@@ -2,9 +2,9 @@
 
 Download the 42.8 MB teaching ZIP before class. It keeps all 30 time frames while reducing each spatial dimension by a factor of four; the extracted image arrays contain about 122.5 MiB. That reduction lowers download, memory, and rendering demands, but it permanently removes fine spatial detail.
 
-The teaching derivative comes from [napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)](https://doi.org/10.5281/zenodo.22694247) and is licensed CC BY 4.0. The derivative is archived separately at [Zenodo DOI 10.5281/zenodo.22696913](https://doi.org/10.5281/zenodo.22696913). Zenodo is the default download source; GitHub retains an identical mirror.
+The teaching images come from [napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)](https://doi.org/10.5281/zenodo.22694247) and are licensed CC BY 4.0. The smaller teaching package is available at [Zenodo DOI 10.5281/zenodo.22696913](https://doi.org/10.5281/zenodo.22696913). Zenodo is the default download source; GitHub retains an identical mirror.
 
-## Recommended: verified command-line download
+## Download with the workshop script
 
 Open PowerShell on Windows or Terminal on macOS. Move into the extracted workshop folder—the folder containing `pyproject.toml`—and preview the download:
 
@@ -20,9 +20,9 @@ Start the download:
 uv run scripts/download_data.py --dataset teaching
 ```
 
-The downloader verifies the archive against the checksum recorded in the project manifest before extraction. Rerunning the same command is safe: a previously verified package can be reused, including one downloaded earlier from GitHub. Its bytes and checksum have not changed.
+The downloader verifies the archive against the checksum recorded in the project manifest before extraction. Rerunning the same command is safe: a previously verified package can be reused, including one downloaded earlier from GitHub. The Zenodo and GitHub copies are identical.
 
-At an ideal sustained 10 Mbit/s the 42.8 MB transfer takes about 35 seconds, or about 3.5 seconds at 100 Mbit/s. Browser, server, Wi-Fi, verification, extraction, and a room full of shared connections add overhead, so these calculations are not a download-time promise.
+The 42.8 MB download takes about 35 seconds at a steady 10 Mbit/s, or 3.5 seconds at 100 Mbit/s. Allow extra time for checking and extracting the files, especially on shared classroom Wi-Fi.
 
 Success produces this layout:
 
@@ -55,7 +55,7 @@ The scripted route checks file identity automatically. With a browser download, 
 
 ## Five-minute classroom limit
 
-During class, stop a teaching-package download after five minutes if it is not complete. Tell the instructor and use the supplied USB/local copy, pair with a participant who has the data, or follow the static 2D route. Waiting longer consumes the lesson without teaching napari. This limit is a classroom decision, not a promised download time.
+If the download is still running after five minutes in class, tell the instructor. Use a local copy from a USB drive, pair with someone who has the data, or follow along with the reference images so you can keep up with the lesson.
 
 ## Optional source data
 
@@ -78,7 +78,7 @@ uv run scripts/download_data.py --dataset source --timepoints 30 --dry-run
 uv run scripts/download_data.py --dataset source --timepoints 30
 ```
 
-Use the 30-frame command only as optional take-home work on a suitable connection. The complete source image arrays alone occupy about 7.53 GiB in memory if loaded eagerly; the large-data notebook therefore demonstrates lazy loading. Lazy loading does not reduce the download, guarantee fast scrubbing, or remove GPU limits.
+Use the 30-frame command only as optional take-home work on a suitable connection. The complete source image arrays alone occupy about 7.53 GiB in memory if loaded eagerly; the large-data notebook therefore demonstrates lazy loading. You still need to download the files, and switching frames may be slow. Each displayed volume also needs to fit in graphics memory.
 
 An instructor with verified original files can avoid another network transfer:
 
@@ -90,6 +90,6 @@ The quoted path may contain spaces. The script checks the local source before re
 
 ## What is already computed
 
-`detections.csv` contains supplied rows with columns `t,z,y,x,amp,int`. `tracks.csv` contains headerless rows in `id,t,z,y,x` order and represents 2,058 supplied tracks. The workshop reads and displays these tables. Downloading or opening them does **not** recompute detections or tracks, and no workshop step asks you to run detection or tracking.
+`detections.csv` contains the columns `t,z,y,x,amp,int`. `tracks.csv` has no header; its columns are `id,t,z,y,x`, with 2,058 track IDs. Both tables were computed beforehand. The notebooks load them as points and tracks alongside the images.
 
-The layer names **DNA** and **mitochondria** come from the source files. More specific particle identity, voxel calibration, and acquisition timing are awaiting confirmation. Treat `t` as a frame index and `z,y,x` as source-voxel coordinates; do not add seconds, micrometres, or a physical scale bar.
+The layer names **DNA** and **mitochondria** come from the source files. The identities of individual particles, voxel size, and acquisition interval still need confirmation. For now, use frame numbers for `t` and source voxels for `z,y,x`.

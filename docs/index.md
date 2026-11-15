@@ -2,7 +2,7 @@
 
 Welcome to the online handouts for **napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation**, November 16–17, 2026.
 
-This three-hour workshop is written for biologists with little or no programming experience. Start with your operating system setup page before class. During class, the main notebook takes you from an image array to a deliberately styled view with supplied detections and tracks, then to a saved PNG or short movie.
+This three-hour workshop is written for biologists with little or no programming experience. Start with your operating system setup page before class. In the main notebook, you will load images, adjust how they look, add detections and tracks, and save a PNG or short movie.
 
 [Download the course files](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.2/napari-workshop-v0.1.2.zip) · [Download offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.2/napari-workshop-handouts.zip)
 
@@ -16,16 +16,16 @@ Before typing commands, here are the tools you will use:
 
 Keep the terminal running while you use JupyterLab and napari. More terms are in the [glossary](../handouts/glossary.md).
 
-Opening this website alone cannot launch the local napari viewer.
+To open napari, run the notebooks on your computer using the setup instructions below.
 
 ![Napari interface displaying a 3D view with image, particle, and track layers](../reference/viewer-interface.png)
 
-The reference above is a real render of the prepared course data at frame index 10. A [matching 2D projection](../reference/viewer-2d-interface.png) supports the fallback route. These images were produced during Linux validation and do not claim a successful Windows or macOS platform test.
+This view shows frame 10 of the teaching data. A [matching 2D projection](../reference/viewer-2d-interface.png) shows the same frame with depth flattened.
 
 {download}`Download the reference time-series MP4 <../reference/time-series.mp4>` (30 acquisition frames, displayed at 10 playback frames per second; source data CC BY 4.0).
 
-```{admonition} Scientific boundary
-The points and tracks are precomputed. The workshop displays and interprets them; it does not run new detection or tracking. Coordinates remain source voxels and time remains a frame index because physical calibration and acquisition timing are not yet confirmed.
+```{admonition} About the data
+The points and tracks have already been computed. We will explore them alongside the images. Positions are in source voxels and time is shown as a frame number; converting to micrometres and seconds will require confirmation of the voxel size and acquisition interval.
 ```
 
 ```{toctree}
@@ -76,4 +76,4 @@ Notebook source files:
 ../instructor/validation-report
 ```
 
-The [teaching dataset](https://doi.org/10.5281/zenodo.22696913) and [original source dataset](https://doi.org/10.5281/zenodo.22694247) have separate Zenodo records, both under CC BY 4.0. The main teaching package is a factor-4 spatial derivative that keeps all 30 frames and loses fine detail. Use [Download the data](../setup/download-data.md) for the verified course route.
+The [teaching dataset](https://doi.org/10.5281/zenodo.22696913) and [original source dataset](https://doi.org/10.5281/zenodo.22694247) have separate Zenodo records, both under CC BY 4.0. The teaching package keeps all 30 frames with roughly one-quarter as many samples along each spatial axis. It is small enough to use on a laptop, though some fine detail is lost. Follow [Download the data](../setup/download-data.md) to get your copy.

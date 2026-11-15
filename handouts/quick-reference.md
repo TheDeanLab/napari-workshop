@@ -56,10 +56,10 @@ Display controls change what you see, not the stored voxel intensities. A maximu
 
 - Images, detections: `t, z, y, x`
 - Tracks: `id, t, z, y, x`
-- `t` is a frame index from 0 to 29, not confirmed seconds.
-- Spatial coordinates are source voxels, not confirmed micrometres.
-- A point is a supplied candidate detection.
-- A track is a supplied association of detections across frames.
+- `t` is a frame number from 0 to 29. The acquisition interval is still unconfirmed.
+- Spatial coordinates are in source voxels. The physical voxel size is still unconfirmed.
+- A point marks a possible particle.
+- A track links detections across frames.
 - Track tail length is a time window; it is not the number of particles.
 - The prepared data are reduced fourfold in space, so fine detail is lost.
 

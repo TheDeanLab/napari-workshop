@@ -2,7 +2,6 @@
 
 Complete this setup before class if you can. You need an internet connection, permission to install software for your Windows account, and about 10 GB of free space. These directions use **PowerShell**, the command window built into Windows.
 
-
 Before typing commands, here are the tools you will use:
 
 - **Python environment:** the workshop’s own Python and installed packages, stored in `.venv` so they stay together.
@@ -125,4 +124,4 @@ The notebook runs in the browser, while napari opens as a separate desktop windo
 
 To finish, save the notebook with **File → Save Notebook**, close the napari window, and in JupyterLab choose **File → Shut Down**. Close PowerShell after the command has stopped. To return on another day, open PowerShell in the workshop folder and run `uv run jupyter lab` again.
 
-> These directions have not yet been certified by a completed Windows platform pilot. Report your Windows version, processor type, and exact error text if a step fails.
+> If a step fails, send the instructor your Windows version, processor type, and the complete error message. The [validation record](../instructor/validation-report.md) lists the Windows checks that still need to be completed.

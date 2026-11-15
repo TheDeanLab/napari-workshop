@@ -1,6 +1,6 @@
 # Exercises
 
-Run these exercises in `notebooks/01_rendering_workshop.ipynb` unless your instructor gives another route. Save your notebook before each challenge. The supplied points and tracks are precomputed; do not run a detector or tracker.
+Run these exercises in `notebooks/01_rendering_workshop.ipynb` unless your instructor gives another route. Save your notebook before each challenge. The points and tracks are already computed and ready to display.
 
 ## 1. Find the axes
 
@@ -14,7 +14,7 @@ Run these exercises in `notebooks/01_rendering_workshop.ipynb` unless your instr
 
 **Checkpoint:** You can return to the same `t` and `z` location and point to both slider labels.
 
-## 2. Display choices are interpretations
+## 2. Explore display settings
 
 1. Select the DNA image layer and hide the mitochondria layer.
 2. Adjust contrast limits until both bright and dim structure are visible.
@@ -34,7 +34,7 @@ Run these exercises in `notebooks/01_rendering_workshop.ipynb` unless your instr
 2. Compare it with the maximum-intensity projection.
 3. If graphics permit, switch to 3D and rotate the volume; press **Home** to reset.
 
-**Explain:** What depth information did the projection discard? Does the 3D rendering create measurements that were not acquired?
+**Explain:** What depth information did the projection discard? How do the display settings affect what you can see in 3D?
 
 **Fallback:** If 3D is slow or blank, complete the comparison with the 2D slice and projection. Pair with a participant whose 3D viewer works for the rotation task, or observe the instructor demonstration. Record that you used the fallback.
 
@@ -62,8 +62,8 @@ Run these exercises in `notebooks/01_rendering_workshop.ipynb` unless your instr
 Create one view that communicates a feature you find interesting:
 
 1. Choose a frame and a slice, projection, or 3D view.
-2. Style both image layers deliberately.
-3. Show supplied detections or tracks only when they help the claim.
+2. Adjust the contrast and colors of both image layers.
+3. Add detections or tracks if they help explain the feature.
 4. Export a PNG into a new folder under `outputs/`.
 5. If movie export works, make a short MP4; otherwise submit the PNG.
 6. Write three display/export decisions and one limitation.
@@ -80,7 +80,7 @@ Use `notebooks/03_optional_large_data.ipynb` only after the core lesson.
 4. Verify that an image feature and table marker stay aligned.
 5. Describe what lazy loading changed and what it did not change.
 
-A factor-4 teaching package cannot provide factor-1 detail. Lazy loading may limit RAM use, but it does not reduce download size or guarantee lower graphics use for the displayed volume.
+A factor-4 teaching package cannot provide factor-1 detail. Lazy loading can reduce RAM use. You still need to download the files, and the displayed volume still uses graphics memory.
 
 ## Take-home reflection
 
