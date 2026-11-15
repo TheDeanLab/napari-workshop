@@ -66,23 +66,23 @@ Send the instructor the complete terminal output if this fails.
 
 ## Qt, OpenGL, graphics, or a blank 3D canvas fails
 
-If the **Practice sphere** layer exists but looks black, first check its contrast limits. The synthetic sphere contains only 0 and 1; set the range to **0–1**. Both setup checks now set that range explicitly. Older copies used the 0–255 default for `uint8`, which made the sphere almost invisible. Closing applications will not correct that display range. A visible sphere that rotates is the graphics checkpoint.
+If the **Practice sphere** layer exists but looks black, first check its contrast limits. The synthetic sphere contains only 0 and 1; set the range to **0–1**. Both setup checks now set that range explicitly. Older copies used the 0–255 default for `uint8`, which made the sphere almost invisible. Once the sphere is visible, drag to check that it rotates.
 
 First close other viewers and memory-heavy applications. Retry the tiny `--gui` setup check. If 2D works but 3D is slow or blank, close the viewer, restart the main notebook kernel, and set `USE_3D = False` in its first code cell. Run from the top. This keeps slices and projections, skips camera rotation, and still exports a PNG and acquired-time movie with projected points/tracks. Pair with a neighbor for the 3D manipulation. If even 2D napari fails, use the static course page and an instructor demonstration.
 
-Installing the Python packages does not prove that the computer’s graphics driver supports the viewer. Do not spend class time installing random Qt packages or changing display drivers. Record the exact error and machine details for follow-up.
+If the graphics check still fails, record the error and machine details for follow-up after class. Use the 2D or paired option for now; changing Qt packages or display drivers can take time and introduce other problems.
 
 ## Windows warnings appear in red, but the notebook continues
 
-Red text is not by itself a failed cell. A warning can describe an adjustment while code continues. A traceback ending in an exception, missing labels, an unusable viewer, or a missing movie needs attention. Keep the complete message; do not disable all warnings.
+A cell can print a warning in red and still finish successfully. A traceback ending in an exception, missing labels, an unusable viewer, or a missing movie needs attention. Keep the complete message; do not disable all warnings.
 
 | Message | What to check and do |
 |---|---|
 | `QWindowsWindow::setGeometry: Unable to set geometry` | Windows reports different actual and requested window dimensions. Check that the canvas, layer controls, and time slider are visible and usable. Try restoring the window from maximized mode and resizing it within one screen. If controls remain clipped, ask the instructor. Record screen resolution, Windows display scaling, and whether multiple monitors are attached. The cause and workaround still need Windows verification. |
-| `DirectWrite: CreateFontFaceFromHDC() failed` mentioning `MS Sans Serif` | Check that `z`/`frame` axis labels, the frame overlay, and controls are readable. If they are, the reported run suggests the warning need not stop the lesson; a Windows pilot must confirm this. If text is absent or garbled, stop and show the instructor. Do not install random fonts or Qt versions during class. |
+| `DirectWrite: CreateFontFaceFromHDC() failed` mentioning `MS Sans Serif` | Check that `z`/`frame` axis labels, the frame overlay, and controls are readable. If the text is readable and the viewer works, you can continue. We still need to check this on Windows. If text is absent or garbled, stop and show the instructor. Leave font and Qt changes for troubleshooting after class. |
 | `IMAGEIO FFMPEG_WRITER WARNING` mentioning `macro_block_size=16` | The encoder is resizing frames for video compatibility. Updated camera and acquired-time examples fit the whole view into 640 × 480 before encoding, so this warning is not expected there. Check that you ran the updated export cells and reopen the movie to inspect its dimensions. Keep the PNGs if encoding fails; do not change `macro_block_size` to hide the warning. |
 
-The original Windows reviewer completed the workshop despite these warnings. That report does not certify every Windows display or graphics configuration. See the **Windows feedback verification checklist** in the [validation record](../instructor/validation-report.md).
+One Windows reviewer completed the workshop despite these warnings. We still need to test the suggested workarounds on Windows. See the **Windows feedback verification checklist** in the [validation record](../instructor/validation-report.md).
 
 ## The data folder is missing or nested twice
 
@@ -125,7 +125,7 @@ Close duplicate viewers and restart the kernel to release arrays. Use the prepar
 
 ## An output folder already exists
 
-Choose a new name instead of deleting evidence from a previous run:
+Choose a new folder name to keep your earlier exports:
 
 ```console
 uv run scripts/render_example.py --data data/teaching --output outputs/example-2

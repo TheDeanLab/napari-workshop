@@ -14,7 +14,7 @@ A rectangular collection of numbers. A microscopy image is represented as an arr
 
 **Channel**
 
-An image series acquired for a particular signal. The source layer names here are DNA and mitochondria; a layer name alone does not establish the identity of a tracked particle.
+An image series acquired for a particular signal. The two channels in this workshop are named DNA and mitochondria.
 
 **Colormap**
 
@@ -26,11 +26,11 @@ The low and high intensity values mapped to the dark and bright ends of a layerâ
 
 **Detection**
 
-A supplied candidate location at one frame. A displayed point does not prove biological identity or tracking correctness.
+The location of a possible particle in one frame. Detections can include mistakes, so compare them with the image.
 
 **Downsampling factor**
 
-How much the original spatial grid is reduced. Factor 4 keeps roughly every fourth-scale spatial dimension using the preparation method. It reduces workload but loses fine detail. It does not change the 30-frame time axis.
+How much the original spatial grid is reduced. Factor 4 reduces the number of samples along each spatial axis to roughly one-quarter. It reduces workload but loses fine detail. It does not change the 30-frame time axis.
 
 **Dtype**
 
@@ -62,7 +62,7 @@ One image, points table, tracks table, or other object in the napari viewer. Eac
 
 **Lazy loading**
 
-A strategy that delays reading array chunks until needed. It can reduce RAM use, but it does not shorten the initial download, guarantee instant interaction, or remove GPU limits.
+Reading pieces of an array as they are needed. This can reduce RAM use, though loading each new piece takes time and the displayed data still use graphics memory. The initial download is the same size.
 
 **Maximum-intensity projection (MIP)**
 
@@ -94,7 +94,7 @@ A lower-dimensional summary of an array. Always state which axis and operation w
 
 **Scale**
 
-The conversion between array steps and physical units. Calibration is not yet confirmed for this dataset, so course coordinates remain in source voxels and no physical scale bar is claimed.
+The conversion between array steps and physical units. We still need to confirm the voxel size for this dataset, so positions are shown in source voxels.
 
 **Slice**
 
@@ -106,7 +106,7 @@ One element of the original three-dimensional image grid. Tables retain source-v
 
 **Track**
 
-An inferred association of positions across frames, identified by `id`. It is a model result that may contain errors or ambiguities, not a newly measured image channel.
+An inferred association of positions across frames, identified by `id`. Tracking software links detections into a path, sometimes making incorrect or ambiguous connections.
 
 **Track tail**
 

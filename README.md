@@ -2,7 +2,7 @@
 
 This repository contains the materials for **napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation**, a three-hour workshop for biologists on November 16–17, 2026.
 
-You will use a Jupyter notebook to give instructions to Python and a separate napari window to explore a four-dimensional microscopy dataset. You will load two image layers named **DNA** and **mitochondria**, overlay supplied particle detections and tracks, adjust the display, and export a view. The detections and tracks are already computed. The workshop does not teach or run new detection or tracking calculations.
+You will use a Jupyter notebook and a separate napari window to explore a four-dimensional microscopy dataset. You will load two image layers, **DNA** and **mitochondria**, add particle detections and tracks, adjust the display, and export a view. The detections and tracks are already computed, so we can focus on viewing and interpreting them.
 
 ## Start here
 
@@ -32,19 +32,19 @@ Open `notebooks/01_rendering_workshop.ipynb`. Choose **Kernel → Change Kernel�
 - [Instructor teaching guide](instructor/teaching-guide.md)
 - [Slide outline](instructor/slide-outline.md)
 
-The optional notebooks add animation and a larger, lazily loaded source dataset. They are take-home material unless the instructor explicitly uses them.
+The optional notebooks explore animation and ways to load a larger dataset without holding it all in memory. You can work through them after class.
 
 ## Reference view
 
 ![Napari showing DNA and mitochondria image layers with supplied particle and track overlays in a 3D view](reference/viewer-interface.png)
 
-This is a real render of the prepared teaching data at frame index 10. The layer list and controls are on the left, the rendered volume is in the main canvas, and the frame slider is at the bottom. It was generated during Linux validation and is a visual checkpoint, not evidence that Windows or macOS has passed a platform test. A [2D projection reference](reference/viewer-2d-interface.png) is available for the fallback route.
+This view shows frame 10 of the teaching data. The layer list and controls are on the left, the image is in the main canvas, and the frame slider is at the bottom. Compare it with the [2D projection](reference/viewer-2d-interface.png) to see how the same data look when depth is flattened.
 
 ## What the data represent
 
-The source data have 30 frame indices per image channel. Each source image volume is `118 × 664 × 860` voxels with unsigned 16-bit intensity values. The complete two-channel image series occupies about 7.53 GiB before Python and graphics memory are counted. The 42.8 MB teaching ZIP keeps all 30 frames and reduces each spatial dimension by a factor of four; the extracted image arrays contain about 122.5 MiB. This makes it practical to display, but fine spatial detail has been lost and cannot be recovered from the prepared files.
+The source data contain 30 frames per image channel. Each source image volume is `118 × 664 × 860` voxels with unsigned 16-bit intensity values. The complete two-channel image series occupies about 7.53 GiB before Python and graphics memory are counted. The 42.8 MB teaching ZIP keeps all 30 frames and reduces each spatial dimension by a factor of four; the extracted image arrays contain about 122.5 MiB. This makes it practical to display, but fine spatial detail has been lost and cannot be recovered from the prepared files.
 
-Coordinates are expressed in source voxels and time is expressed as a zero-based frame index (`0` through `29`). Acquisition spacing and elapsed time have not yet been confirmed, so these materials do not claim micrometres, seconds, or a physical scale bar. The supplied `detections.csv` contains `t,z,y,x,amp,int`; `tracks.csv` contains `id,t,z,y,x` and 2,058 track IDs. A point is a supplied candidate detection. A track is a supplied inferred association of positions across frames; neither is direct proof of biological identity.
+Positions are given in source voxels, and frames are numbered `0` through `29`. We still need to confirm the voxel size and acquisition interval before converting these to micrometres and seconds. The file `detections.csv` contains `t,z,y,x,amp,int`; `tracks.csv` contains `id,t,z,y,x` and 2,058 track IDs. Each point marks a possible particle, and each track links positions across frames. Both can contain errors and need to be checked against the images.
 
 Teaching dataset: [Spatially Downsampled Images, Detections, and Tracks](https://doi.org/10.5281/zenodo.22696913). Original dataset: [napari Workshop Datasets: Deciphering the Living Cell through Microscopy and Computation (2026)](https://doi.org/10.5281/zenodo.22694247), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The new workshop code is licensed under the BSD 3-Clause License.
 
@@ -52,6 +52,6 @@ Teaching dataset: [Spatially Downsampled Images, Detections, and Tracks](https:/
 
 Use Windows or macOS, about 10 GB of free disk space, and preferably 16 GB of RAM; 8 GB is the intended minimum for the prepared teaching package. A dedicated NVIDIA GPU is not required, but napari still needs working graphics/OpenGL support.
 
-These instructions are being prepared for platform pilots. A successful documentation build does not establish that napari, 3D rendering, or movie export works on a particular student computer. Record the operating system, processor, and exact error if a setup check fails.
+Run the setup notebook before class to check the viewer and movie export on your computer. If a check fails, send the instructor your operating system, processor, and the complete error message.
 
 Read the [online walkthrough](https://thedeanlab.github.io/napari-workshop/) or download the [course ZIP](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.2/napari-workshop-v0.1.2.zip) and [offline HTML handouts](https://github.com/TheDeanLab/napari-workshop/releases/download/v0.1.2/napari-workshop-handouts.zip). See the [validation record](instructor/validation-report.md) for tested behavior and remaining platform checks.

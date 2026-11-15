@@ -1,6 +1,6 @@
 # Validation record
 
-Validation performed on September 10, 2026. This report separates observed checks from platform pilots still needed.
+Initial tests were completed on September 10, 2026. Later sections record the November fixes and tests. The remaining checks are listed below, including a Windows checklist.
 
 ## Source and teaching data
 
@@ -16,7 +16,7 @@ All four learner notebooks executed from fresh Jupyter kernels with the prepared
 
 The Linux environment used Python 3.12, napari 0.6.6, NumPy 2.2.6, PyQt6 6.11.0, and imageio-ffmpeg 0.6.0. These versions are locked in the course environment; napari is deliberately pinned to the tested course API.
 
-A separate 30-frame, 640 × 480 MP4 exported at 10 playback fps and reopened with the expected frame count and dimensions. The first and last frames differed. The complete render command took 15.43 seconds and peaked at 790,416 KiB (about 772 MiB) resident process memory on this Linux host using Mesa software OpenGL. This is evidence for this bounded render only; it does not measure total desktop memory, student GPU capacity, or laptop performance.
+A separate 30-frame, 640 × 480 MP4 exported at 10 playback fps and reopened with the expected frame count and dimensions. The first and last frames differed. The complete render command took 15.43 seconds and peaked at 790,416 KiB (about 772 MiB) resident process memory on this Linux host using Mesa software OpenGL. These timings and memory figures cover this render on the Linux host. Laptop performance and total desktop memory use will vary.
 
 ## Documentation and portability
 
@@ -27,10 +27,10 @@ GitHub Actions checks the locked environment, tests, encoder, notebook format, a
 ## Remaining instructor checks
 
 - Run the full learner path on a Windows laptop, an Apple Silicon Mac, and an Intel Mac, recording RAM, OS, graphics behavior, and MP4 playback.
-- Rehearse the 180-minute schedule with a biologist unfamiliar with the notebook; the timetable is an instructional plan, not a measured novice completion time.
+- Rehearse the 180-minute schedule with a biologist unfamiliar with the notebook; we have not yet measured how long a first-time learner needs.
 - Confirm particle identity, voxel calibration, and acquisition timing. Until then, the materials intentionally use source voxels and frame indices.
 
-Eight GiB RAM is a target for the prepared data, and 16 GiB is preferred. Neither has been certified by a completed laptop pilot. Keep the documented 2D, paired, and static fallback routes available.
+We recommend 16 GiB RAM and aim to support 8 GiB with the teaching data. Both memory configurations still need a full laptop trial. Have the 2D instructions, reference images, and a computer available for paired work.
 
 ## v0.1.1: published teaching DOI
 
@@ -70,9 +70,9 @@ pandas/ImageIO inference or stub errors in the rendering module as the original
 revision; type checking is not a configured repository gate. No new type errors
 remain from these changes. An independent code review found no additional issues.
 
-This establishes automated execution and export on this Apple Silicon machine.
-It does not certify learner interaction, an 8 GiB memory target, Windows, or Intel
-macOS. Those platform and novice-learner pilots remain outstanding.
+Automated notebook execution and export passed on this Apple Silicon machine.
+Hands-on learner testing, the 8 GiB memory target, and full Windows and Intel Mac
+trials are still outstanding.
 
 ## November 14, 2026: learner feedback fixes
 
@@ -102,8 +102,8 @@ remaining in 2D, and decoded movie properties. The three camera movies contained
 5 fps. All seven movies were 640 × 480; first and last frames differed. Camera
 first-frame pixels were compared with the fitted native PNGs. The bright sphere
 and representative decoded first/last camera views were visually inspected.
-No reported Qt/font or encoder-resizing warning occurred in these Mac notebook
-runs. This is not evidence that the Windows Qt/font issues are resolved.
+No Qt/font or encoder-resizing warnings appeared in these Mac notebook runs.
+The Qt/font issues still need testing on Windows.
 
 Local executed notebooks, the sphere screenshot, and movie verification records
 are retained in `outputs/feedback-verification-20261114/`; their JSON records name
@@ -118,7 +118,7 @@ no additional actionable issues.
 The November reviewer reported completing the Windows workshop despite a blank
 practice sphere, point-size confusion, and Qt/font/video warnings. They did not
 test macOS. Assaf specifically flagged the sphere because it occurs at the start.
-The feedback is a learner report, not a controlled platform qualification.
+A full Windows test with the revised files is still needed.
 
 The sphere failure was reproduced on Apple Silicon: the synthetic `uint8` image
 contains values 0 and 1, while napari's default contrast range is 0–255. Explicit
@@ -129,8 +129,8 @@ The particle-size exercise changes all existing points through `particles.size`;
 GUI selection is explained separately as affecting selected visible points.
 
 **Still unverified on Windows:** complete the following on a physical Windows
-laptop using the revised course files. Do not mark Qt/font warnings resolved from
-macOS tests or from non-GUI CI alone.
+laptop using the revised course files. In particular, check whether the Qt/font
+warnings affect the viewer; our Mac runs and automated CI cannot answer that.
 
 - Record the course commit/archive, Windows version, CPU, RAM, GPU/driver, screen
   resolution, display scaling, monitor count, and package versions printed by
@@ -166,9 +166,8 @@ macOS tests or from non-GUI CI alone.
 
 Record each outcome as pass/fail/not tested, with the exact warning and artifact
 path. If labels or controls are unusable, use the documented fallback and retain
-the failure for investigation. A warning-free Mac run does not settle these two
-Windows Qt issues. The timed novice rehearsal, Intel Mac pilot, and 8 GiB laptop
-target also remain unverified.
+the failure for investigation. The timed novice rehearsal, Intel Mac trial, and
+8 GiB laptop target also remain untested.
 
 
 ## v0.1.2: fixed course and handout archives
@@ -183,4 +182,4 @@ verified teaching-data folder can be reused in the new course folder.
 The runtime workflow installs the Linux EGL library required by Qt imports and
 uses the supported macOS 15 runner. Linux, Windows, and macOS runtime checks and
 the documentation deployment passed on the merged CI-fix commit `d2cb7d1`.
-This hosted non-GUI validation does not close the physical Windows checklist above.
+The Windows GUI checks above still need to be run on a laptop.

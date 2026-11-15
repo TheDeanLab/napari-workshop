@@ -7,7 +7,7 @@ This outline supports the 180-minute lesson. Keep slides sparse and switch quick
 ### 1. Deciphering the living cell through microscopy and computation
 
 - Workshop dates: November 16–17, 2026
-- Today: render, inspect, overlay supplied results, and communicate limitations
+- Today: explore images, add detections and tracks, and make a movie
 - Show the final PNG or short movie
 
 Speaker note: detections and tracks have already been computed. No new detection or tracking runs today.
@@ -64,7 +64,7 @@ Demo: make one useful adjustment and one misleading saturated view.
 
 Prompt: find one feature and compare all available views.
 
-### 8. The prepared-data tradeoff
+### 8. Why we use a smaller dataset
 
 - All 30 frames retained
 - Spatial factor 4
@@ -90,9 +90,9 @@ Speaker note: numeric measurements and visual alignment do not prove identity.
 - Tail length is a time window
 - Smooth-looking paths can still be wrong
 
-Prompt: name one possible association failure.
+Prompt: how might two detections get linked incorrectly?
 
-### 11. What we can and cannot claim
+### 11. What we know about the data
 
 | Supported description | Awaiting evidence |
 |---|---|
@@ -141,11 +141,11 @@ Show the 2D, paired, and static fallback routes on the same slide.
 - State what contrast changed
 - Name one unsupported conclusion
 
-### 17. Continue carefully
+### 17. Try your own data
 
 - Optional animation and large-data notebooks
 - Use-your-own-data checklist: axes, units, memory, coordinates, provenance
 - Teaching dataset DOI: `10.5281/zenodo.22696913` (CC BY 4.0)
 - Original dataset DOI: `10.5281/zenodo.22694247` (CC BY 4.0)
 
-Speaker note: remind learners that successful rendering is evidence of a working display workflow, not proof of detection, tracking, calibration, or biological validity.
+Speaker note: ask what learners would need to check before interpreting tracks from their own experiment.

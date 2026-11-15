@@ -1,7 +1,6 @@
 # macOS setup
 
-Complete this setup before class if you can. You need an internet connection, permission to install software for your account, and about 10 GB of free space. The same course files support Apple Silicon and Intel Macs, but both routes still require a platform pilot.
-
+Complete this setup before class if you can. You need an internet connection, permission to install software for your account, and about 10 GB of free space. Use the same course files for Apple Silicon and Intel Macs.
 
 Before typing commands, here are the tools you will use:
 
@@ -119,8 +118,8 @@ uv run jupyter lab
 
 Terminal prints messages and opens JupyterLab in your web browser. Leave Terminal running. In the browser, double-click `notebooks`, then `00_check_setup.ipynb`. At the upper right, select **Python (napari workshop)**. Run one code cell at a time with **Shift+Enter** and compare each result with the notebook’s explanation. Stop when the practice sphere appears: inspect and rotate it before running the cell that closes the viewer. Do not use **Run All Cells** for this interactive check.
 
-The browser cannot display a local Qt application by itself. Napari opens in a separate desktop window; use **Command+Tab** or check behind the browser if it is hidden.
+Napari opens in a separate desktop window; use **Command+Tab** or check behind the browser if it is hidden.
 
 To finish, save the notebook with **File → Save Notebook**, close napari, and choose **File → Shut Down** in JupyterLab. Close Terminal after the command stops. On another day, open Terminal, return to the workshop folder, and run `uv run jupyter lab` again.
 
-> These directions have not yet been certified on Apple Silicon or Intel macOS. Record the macOS version, chip, and exact error text if a step fails. A successful install does not by itself prove that 3D graphics or MP4 export works.
+> Check both the viewer and movie export before class. If either fails, send the instructor your macOS version, chip, and the complete error message. See the [validation record](../instructor/validation-report.md) for tests completed so far and remaining Mac checks.

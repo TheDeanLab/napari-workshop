@@ -1,6 +1,6 @@
 # Use your own data
 
-Use this guide after you can run the supplied example. It is an adaptation checklist, not a general-purpose file importer. Keep a copy of the notebook inside the complete workshop folder and start with a small representative dataset. Keep the original files unchanged.
+Once you can run the workshop example, try it with a small sample of your own data. Copy the notebook within the workshop folder, and keep your original data files unchanged. The steps below describe the file formats and adjustments the workshop helpers need.
 
 ## 1. Check whether your data fit the lesson
 
@@ -23,9 +23,9 @@ Write down, from acquisition metadata:
 - channel names and what evidence supports their biological interpretation;
 - any crop, binning, resampling, or coordinate offset already applied.
 
-If a value is unknown, keep spatial values in voxels and time as frame indices. Do not invent micrometres, seconds, speed, or a physical scale bar. The workshop example follows this rule because its calibration and acquisition timing are not yet confirmed.
+If a value is unknown, keep spatial values in voxels and time as frame indices. You will need the missing calibration before reporting physical distances or speeds. The workshop example also uses voxels and frame indices while we confirm its calibration.
 
-## 3. Prepare tables explicitly
+## 3. Prepare the tables
 
 A detections table must have a header with at least:
 
@@ -43,7 +43,7 @@ track_id,t,z,y,x
 
 Napari expects the identifier first. The course helper requires a **headerless numeric** `tracks.csv` in `id,t,z,y,x` order; it reads values with `numpy.loadtxt`. A file beginning with `track_id,t,z,y,x` will fail in that helper. For an independently written loader, a header is useful: read it with pandas and explicitly select columns in napari order. Document whether positions are array indices, source voxels, display-array coordinates, or physical coordinates.
 
-Before display, verify that every `t` and spatial coordinate lies within the corresponding image bounds. Keep excluded and unmatched rows in a separate provenance record rather than silently deleting them. A track is an inferred association and should not be presented as proof of identity.
+Before display, verify that every `t` and spatial coordinate lies within the corresponding image bounds. Keep a separate record of any excluded or unmatched rows and why you left them out. Check the tracks against the images for incorrect links.
 
 ## 4. Use relative paths
 
@@ -118,7 +118,7 @@ Check several recognizable objects at early, middle, and late frames. Verify eac
 ## 8. Adapt a copy of the notebook
 
 1. Duplicate `notebooks/01_rendering_workshop.ipynb` and rename the copy.
-2. Satisfy the loader contract above, then change the data path and layer names.
+2. Check that your files meet the format requirements above, then change the data path and layer names.
 3. Adjust example indices such as `z_plane = 15` and frame 10 to valid positions in your smaller dataset; update any fixed frame counts or contrast settings.
 4. Run from a restarted kernel and confirm shapes, axes, and table bounds.
 5. Add one image layer at a time, then points, then tracks.

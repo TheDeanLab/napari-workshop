@@ -1,10 +1,10 @@
 # Instructor teaching guide
 
-## Course promise and boundary
+## What learners will do
 
 In 180 minutes, learners use JupyterLab and napari to load a prepared four-dimensional microscopy dataset, interpret display choices, overlay precomputed detections and tracks, and export a view. They should leave able to explain what each layer represents and name important limitations.
 
-The course does **not** compute new detections or tracks. Do not turn a rendering question into an algorithm lesson, and do not describe the supplied candidates or associations as validated biological truth. The original layer names are DNA and mitochondria; detailed particle identity remains unconfirmed. Voxel spacing and acquisition timing also remain unconfirmed, so teach source voxels and frame indices only. Do not show a physical scale bar, seconds, speeds, or physical distances.
+The detections and tracks are already computed. Focus on how to display them, compare them with the images, and spot possible errors. The source channels are named DNA and mitochondria, but the identities of individual tracked particles still need confirmation. We also need to confirm voxel spacing and acquisition timing. Until then, use source voxels and frame numbers, and leave out physical scale bars and speed measurements.
 
 The teaching package retains all 30 time frames and reduces each spatial dimension by factor 4. State early that this improves laptop usability while losing fine detail. The complete source image arrays are about 7.53 GiB before overhead; the full source download is about 8.1 GB.
 
@@ -23,7 +23,7 @@ At least one week before class:
 7. Confirm that the teaching package, tables, and source attribution match the pinned manifest.
 8. Prepare pairs so every learner can continue if one computer has graphics trouble.
 
-Do not claim Windows, Apple Silicon, or Intel macOS support until the relevant pilot is recorded. A documentation build checks links and structure; it does not test Qt, 3D interaction, memory, or movie encoding.
+Check the [validation record](validation-report.md) for completed tests and remaining Windows and Mac checks. Rehearse installation, 3D interaction, and movie export on the computers learners will use.
 
 ## Room setup and roles
 
@@ -40,12 +40,12 @@ Display a final example at the start. Use a repeated rhythm: **predict → run a
 | 20–40 | Load first grayscale image; explain array, axes, shape, layer | Learner labels `t,z,y,x` and finds the layer list | Use supplied 2D PNG if viewer fails |
 | 40–65 | Add both channels; contrast, gamma, colormaps, opacity, additive blending; PNG export | Learner explains why display changes do not alter TIFF values | Keep screenshot; omit extra styling variations |
 | 65–90 | Navigate z and t; compare slice, projection, and 3D; rotate/reset | Learner names information lost by projection | Use slice/projection and paired 3D route |
-| 90–100 | Break | Helper resolves only bounded setup issues | Restart kernels/viewers as needed |
+| 90–100 | Break | Helper handles quick setup fixes | Restart kernels/viewers as needed |
 | 100–120 | Inspect five detection rows; add and style points | Learner matches one `t,z,y,x` row to one displayed marker | Instructor demonstrates table-to-point match |
 | 120–140 | Add precomputed tracks; inspect ID, tail, width, and color | Learner explains association uncertainty and tail meaning | Use static track screenshot if interaction fails |
 | 140–155 | Fixed-camera time sequence, then camera keyframes | Learner distinguishes sample time from camera motion | Omit camera keyframes first if behind |
 | 155–165 | Export/check MP4 and retain PNG fallback | Learner distinguishes acquisition frame from playback fps | Use PNG plus reference MP4 if encoding fails |
-| 165–177 | Independent mini-challenge | Learner produces an artifact and explains three choices and one limit | Pair or use prepared 2D data |
+| 165–177 | Independent mini-challenge | Learner exports a view and explains three choices and one limitation | Pair or use prepared 2D data |
 | 177–180 | Exit ticket and shutdown | Learner states image/detection/track distinction | Collect written answer after class if needed |
 
 A reviewer expected to finish in less than three hours, depending on exploration and guidance. Keep the three-hour slot until a timed novice pilot is complete; use spare time for the mini-challenge, interpretation, or optional notebooks. Record time spent on setup separately.
@@ -68,11 +68,11 @@ A slice shows one depth plane. A maximum-intensity projection selects the bright
 
 ### Detections
 
-The location columns are `t,z,y,x`. `amp` and `int` are supplied numeric measurements, but without validated definitions and biological controls they do not prove particle identity. Image and table transforms must match or a correct source coordinate will be rendered at the wrong feature.
+The location columns are `t,z,y,x`. The meanings of `amp` and `int` depend on the detection method; we need those definitions and appropriate biological controls to interpret them. Image and table transforms must match or a correct source coordinate will be rendered at the wrong feature.
 
 ### Tracks
 
-The first column identifies a track; the remaining columns locate it at a frame. A longer tail shows more of the track’s recent time window, not more particles. A smooth path can still be wrong because nearby candidates may have been linked incorrectly, detections may be missing, or one biological object may be confused with another. Visual plausibility is useful QC, not validation.
+The first column identifies a track; the remaining columns locate it at a frame. A longer tail shows more of the track’s recent time window, not more particles. A smooth path can still be wrong because nearby candidates may have been linked incorrectly, detections may be missing, or one biological object may be confused with another. Inspecting the paths can reveal mistakes, but assessing tracking accuracy takes additional analysis.
 
 ### Export
 
@@ -80,7 +80,7 @@ Saving a notebook preserves its code, narrative, and stored outputs. Exporting w
 
 ### Optional large-data comparison
 
-Factor 1 preserves most source detail and requires the largest arrays; factors 2, 4, and 8 trade detail for lower display workload. A factor-4 package cannot produce factors 1 or 2. Lazy loading delays reads and may reduce RAM use. It does not reduce prior download size, guarantee instant scrubbing, or eliminate GPU memory for displayed data.
+Factor 1 preserves most source detail and requires the largest arrays; factors 2, 4, and 8 trade detail for lower display workload. A factor-4 package cannot produce factors 1 or 2. Lazy loading delays reads and may reduce RAM use. The download stays the same size, switching frames may take time, and each displayed volume still uses graphics memory.
 
 ## Mini-challenge rubric
 
@@ -117,7 +117,7 @@ Set `USE_3D = False` in the main notebook’s first code cell before running the
 
 ### Paired route
 
-The learner with the functioning machine controls napari only after the partner predicts the action. Switch control at each checkpoint. Both learners record the interpretation and limitation. This preserves active participation; observing silently is an instructor demonstration rather than independent proficiency.
+The learner with the functioning machine controls napari only after the partner predicts the action. Switch control at each checkpoint. Have both learners explain the result and write down one limitation. Make sure each gets a turn using the viewer.
 
 ### Static route
 
@@ -135,4 +135,4 @@ Omit, in order: additional styling variants, camera-keyframe animation, then opt
 
 ## After class
 
-Collect setup failures separately from scientific questions. Preserve exported artifacts and the environment/version record. Record which OS/processor combinations actually passed load, 3D interaction, and MP4 export; these are separate checks. Revise claims only from observed evidence. Point learners to `03_optional_large_data.ipynb` and `use-your-own-data.md` for take-home work, with the same calibration and alignment safeguards.
+Collect setup problems and scientific questions for follow-up. Keep the exported images and movies along with the package versions used. Update the validation record with each tested operating system and processor, noting whether loading, 3D interaction, and MP4 export worked. Point learners to `03_optional_large_data.ipynb` and `use-your-own-data.md` for further practice.
